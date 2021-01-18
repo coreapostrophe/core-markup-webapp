@@ -1,0 +1,24 @@
+.menu-bar-container{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-bar{
+  border-radius: 0 0 0.8rem 0.8rem;
+  box-shadow: 0pt 2pt 5pt rgba(0,0,0, 0.2);
+  display: inline-block;
+  height: 8rem;
+  width: 60vw;
+}
+
+.menu-top-row{
+  background-color: #00d8e8;
+  height: 35%;
+}
+
+.menu-bot-row{
+  background-color: white;
+  height: 65%;
+  border-radius: 0 0 0.8rem 0.8rem;
+}

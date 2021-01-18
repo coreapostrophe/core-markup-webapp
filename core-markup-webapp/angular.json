@@ -50,9 +50,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -145,6 +149,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "core-markup-webapp"
+    }
+  },
+  "defaultProject": "core-markup-webapp",
+  "cli": {
+    "analytics": "f7a00411-236d-4d13-9a6e-69962b6fdfaf"
+  }
 }
