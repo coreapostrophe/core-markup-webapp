@@ -1,4 +1,4 @@
-<div class="menu-bar-container">
+<div class="menu-bar-container" [ngClass]="{'menu-expand': !menuCollapsed}">
   <div class="menu-bar">
     <div class="menu-top-row">
       <img class="brand-logo" src="../../assets/svg/logo-light.svg">
@@ -18,7 +18,8 @@
       <img class="icon-switch-decktool" [ngClass]="{'icon-light': switchIsDecktool}" src="../../assets/svg/icon-switch-decktool.svg">
     </div>
     <div class="menu-bot-row">
-
+      <img class="menu-dropdown-toggle" src="../../assets/svg/icon-menu-toggle.svg"
+           (click)="onMenuDropdown($event)" [ngClass]="{'menu-dropdown-expand': !menuCollapsed}">
     </div>
   </div>
 </div>

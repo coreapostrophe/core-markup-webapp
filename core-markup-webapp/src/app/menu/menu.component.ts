@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   switchIsDecktool: boolean;
+  menuCollapsed: boolean;
 
   constructor() {
     this.switchIsDecktool = false;
+    this.menuCollapsed = true;
   }
 
   ngOnInit(): void {
@@ -17,5 +19,9 @@ export class MenuComponent implements OnInit {
 
   onSwitch(event){
     this.switchIsDecktool = event.target.checked;
+  }
+
+  onMenuDropdown(event){
+    this.menuCollapsed = !this.menuCollapsed;
   }
 }
