@@ -1,3 +1,9 @@
+.brand-logo{
+  height: 45%;
+  display: inline-block;
+  margin: 0 15pt 0 15pt;
+}
+
 .menu-bar-container{
   box-sizing: border-box;
   display: flex;
@@ -10,15 +16,101 @@
   display: inline-block;
   height: 8rem;
   width: 60vw;
+  min-width: 35rem;
 }
 
 .menu-top-row{
   background-color: var(--theme-blue);
-  height: 35%;
+  display: flex;
+  align-items: center;
+  height: 40%;
+}
+
+.menu-bar-list-items{
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  margin: 0 1.5rem 0 1.5rem;
+  color: white;
+}
+
+.menu-bar-list-items:hover{
+  text-decoration: none;
+}
+
+.menu-switch-container{
+  width: 4.5rem;
+  height: 1.5rem;
+}
+
+.menu-switch{
+  display: inline-block;
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+.menu-switch input{
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.menu-switch-slider{
+  cursor: pointer;
+  border-radius: 5pt;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+
+.menu-switch-slider:before{
+  border-radius: 3pt;
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 2rem;
+  left: 3pt;
+  bottom: 50%;
+  background-color: var(--theme-blue);
+  transition: .4s;
+  transform: translateY(50%);
+}
+
+.menu-switch input:checked + .menu-switch-slider:before {
+  transform: translateX(2rem) translateY(50%);
+}
+
+.icon-switch-editor{
+  margin-left: auto;
+  display: inline-block;
+  height: 80%;
+  filter: brightness(200%);
+  transition: 0.4s;
+}
+
+.icon-switch-decktool{
+  margin-right: 15pt;
+  display: inline-block;
+  height: 80%;
+  transition: 0.4s;
+}
+
+.icon-light{
+  filter: brightness(200%);
+}
+
+.icon-grey{
+  filter: brightness(100%);
 }
 
 .menu-bot-row{
   background-color: white;
-  height: 65%;
+  height: 60%;
   border-radius: 0 0 0.8rem 0.8rem;
 }

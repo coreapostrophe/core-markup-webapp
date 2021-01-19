@@ -1,7 +1,21 @@
 <div class="menu-bar-container">
   <div class="menu-bar">
     <div class="menu-top-row">
-
+      <img class="brand-logo" src="../../assets/svg/logo-light.svg">
+      <div class="menu-bar-list">
+        <a class="menu-bar-list-items">File</a>
+        <a class="menu-bar-list-items">Edit</a>
+        <a class="menu-bar-list-items">View</a>
+        <a class="menu-bar-list-items">Help</a>
+      </div>
+      <img class="icon-switch-editor" [ngClass]="{'icon-grey': switchIsDecktool}" src="../../assets/svg/icon-switch-editor.svg">
+      <div class="menu-switch-container">
+        <label class="menu-switch">
+          <input type="checkbox" (change)="onSwitch($event)">
+          <span class="menu-switch-slider"></span>
+        </label>
+      </div>
+      <img class="icon-switch-decktool" [ngClass]="{'icon-light': switchIsDecktool}" src="../../assets/svg/icon-switch-decktool.svg">
     </div>
     <div class="menu-bot-row">
 

@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  switchIsDecktool: boolean;
 
-  constructor() { }
+  constructor() {
+    this.switchIsDecktool = false;
+  }
 
   ngOnInit(): void {
   }
 
+  onSwitch(event){
+    this.switchIsDecktool = event.target.checked;
+  }
 }
