@@ -145,3 +145,75 @@
   transform: translateY(0%);
   transition: 0.5s;
 }
+
+.panel{
+  vertical-align: top;
+  margin: 0 8pt;
+  height: 80%;
+}
+
+.panel-title{
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: var(--theme-dark);
+  margin: 0;
+}
+
+.panel-divider{
+  display: block;
+  background-color: var(--theme-dark);
+  margin-top: -1pt;
+  margin-bottom: 3pt;
+  height: 0.05rem;
+  width: auto;
+}
+
+.panel-item-group{
+  display: inline-block;
+}
+
+.panel-item{
+  display: inline-block;
+  border-radius: 0.3rem;
+  height: 1.2rem;
+  margin: 2pt;
+  transition: 0.5s;
+}
+
+.panel-item:hover{
+  cursor: pointer;
+  background-color: var(--base-background);
+  transition: 0.5s;
+}
+
+.login-signup{
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin-right: 8pt;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.login-signup:hover .icon-account{
+  background-color: var(--base-background);
+  transition: 0.5s;
+}
+
+.icon-account{
+  height: 2rem;
+  vertical-align: center;
+  margin: 0 5pt;
+  border-radius: 100%;
+  border: 1pt solid var(--base-background);
+  transition: 0.5s;
+}
+
+.login-signup label{
+  cursor: pointer;
+  color: var(--theme-dark);
+  letter-spacing: 0.1rem;
+  font-size: 0.8rem;
+  vertical-align: center;
+  margin: 0;
+}
