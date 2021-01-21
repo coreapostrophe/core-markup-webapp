@@ -16,10 +16,15 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.updateSwitch();
   }
 
   onSwitch(event){
     this.switchIsDecktool = event.target.checked;
+    this.updateSwitch()
+  }
+
+  updateSwitch(){
     if(this.switchIsDecktool == true){
       this.route.navigate(['/Decks']);
     } else {

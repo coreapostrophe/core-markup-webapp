@@ -1,0 +1,28 @@
+.deck-list-container{
+  overflow: scroll;
+  text-align: center;
+  box-sizing: border-box;
+  margin: auto;
+  height: 100%;
+  width: auto;
+  max-width: 50rem;
+  border-radius: 5pt;
+}
+
+.deck-list-add{
+  margin: 10pt;
+  display: inline-block;
+  border: 0.05rem dashed var(--theme-dark);
+  border-radius: 0.8rem;
+  height: 15rem;
+  width: 10rem;
+}
+
+.deck-list-item{
+  margin: 10pt;
+  display: inline-block;
+  background-color: white;
+  border-radius: 0.8rem;
+  height: 15rem;
+  width: 10rem;
+}
