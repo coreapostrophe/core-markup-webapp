@@ -19,6 +19,10 @@ export class DropdownDirective {
     this.toggleDropdown();
   }
 
+  @HostListener('focusout') onFocusOut(){
+    this.contentElement.style.display = 'none';
+  }
+
   private toggleDropdown(){
     if(this.contentElement.style.display == 'none'){
       this.contentElement.style.display = 'block';

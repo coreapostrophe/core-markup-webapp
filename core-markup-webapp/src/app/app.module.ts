@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DropdownDirective } from './directives/dropdown.directive';
+import {EditorModule} from "./editor/editor.module";
+import {MonacoEditorModule} from "ngx-monaco-editor";
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DropdownDirective } from './directives/dropdown.directive';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EditorModule,
+    MonacoEditorModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
