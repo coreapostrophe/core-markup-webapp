@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ export class MenuComponent implements OnInit {
   switchIsDecktool: boolean;
   menuCollapsed: boolean;
 
-  constructor() {
+  constructor(private route: Router) {
     this.switchIsDecktool = false;
     this.menuCollapsed = true;
   }
@@ -19,6 +20,11 @@ export class MenuComponent implements OnInit {
 
   onSwitch(event){
     this.switchIsDecktool = event.target.checked;
+    if(this.switchIsDecktool == true){
+      this.route.navigate(['/Decks']);
+    } else {
+      this.route.navigate(['/Editor']);
+    }
   }
 
   onMenuDropdown(event){

@@ -7,6 +7,7 @@ import { MenuComponent } from './menu/menu.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import {EditorModule} from "./editor/editor.module";
 import {MonacoEditorModule} from "ngx-monaco-editor";
+import {DeckToolModule} from "./deck-tool/deck-tool.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MonacoEditorModule} from "ngx-monaco-editor";
     BrowserModule,
     AppRoutingModule,
     EditorModule,
+    DeckToolModule,
     MonacoEditorModule.forRoot()
   ],
   providers: [],
