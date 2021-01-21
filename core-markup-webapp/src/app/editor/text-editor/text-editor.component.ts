@@ -18,7 +18,7 @@ export class TextEditorComponent implements OnInit {
       enabled: 'false'
     }
   };
-  code: string= 'function x() {\nconsole.log("Hello world!");\n}';
+  code: string= '# Hello CMU!';
 
   constructor() {
   }
