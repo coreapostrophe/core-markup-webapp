@@ -20,10 +20,10 @@ export class DropdownDirective {
   }
 
   private toggleDropdown(){
-    if(!this.contentElement.classList.contains('display-dropdown')){
-      this.contentElement.classList.add('display-dropdown');
+    if(this.contentElement.style.display == 'none'){
+      this.contentElement.style.display = 'block';
     } else {
-      this.contentElement.classList.remove('display-dropdown');
+      this.contentElement.style.display = 'none';
     }
   }
 }

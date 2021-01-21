@@ -105,7 +105,8 @@
   margin-left: auto;
   display: inline-block;
   height: 80%;
-  filter: brightness(200%);
+  filter: invert(1) brightness(4);
+  fill: white;
   transition: 0.4s;
 }
 
@@ -117,11 +118,11 @@
 }
 
 .icon-light{
-  filter: brightness(200%);
+  filter: invert(1) brightness(4);
 }
 
 .icon-grey{
-  filter: brightness(100%);
+  filter: brightness(1);
 }
 
 .menu-bot-row{
@@ -228,6 +229,7 @@
 }
 
 .dropdown-content{
+  overflow: hidden;
   display: none;
   position: absolute;
   top: 2rem;
@@ -244,20 +246,18 @@
   text-transform: none;
   letter-spacing: normal;
   color: var(--theme-dark);
-  margin: 0.2rem 0;
+  padding: 0.2rem 5pt;
+  margin: 0;
   display: block;
   transition: 0.5s;
   text-align: left;
-  padding-left: 5pt;
   word-wrap: break-word;
   cursor: pointer;
 }
 
 .dropdown-list-items:hover{
+  overflow: hidden;
   background-color: var(--base-background);
   transition: 0.5s;
 }
 
-.display-dropdown{
-  display: block !important;
-}
