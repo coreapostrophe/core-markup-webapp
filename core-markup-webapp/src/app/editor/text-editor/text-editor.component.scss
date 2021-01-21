@@ -1,8 +1,12 @@
 .monaco-editor{
-  background-color: transparent;
+  box-sizing: border-box;
+  background-color: white;
   margin: auto;
   height: 100%;
-  width: 50rem;
+  width: auto;
+  max-width: 50rem;
+  padding: 1rem;
+  border-radius: 5pt;
 }
 
 ngx-monaco-editor{

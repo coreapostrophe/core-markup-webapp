@@ -11,6 +11,7 @@ export class TextEditorComponent implements OnInit {
 
   editorOptions = {
     theme: 'vs-light',
+    language: 'text',
     lineNumbers: 'off',
     borderRadius: '5',
     minimap: {
