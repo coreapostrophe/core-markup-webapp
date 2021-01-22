@@ -10,6 +10,8 @@
 }
 
 .deck-list-add{
+  box-sizing: border-box;
+  cursor: pointer;
   margin: 10pt;
   display: inline-block;
   border: 0.05rem dashed var(--theme-dark);
@@ -19,10 +21,31 @@
 }
 
 .deck-list-item{
+  box-sizing: border-box;
+  padding: 10pt;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--theme-dark);
+  position: relative;
+  cursor: pointer;
   margin: 10pt;
   display: inline-block;
   background-color: white;
   border-radius: 0.8rem;
   height: 15rem;
   width: 10rem;
+  text-align: left;
+  vertical-align:top;
+}
+
+.deck-list-item:after{
+  content: '';
+  position: absolute;
+  background-color: yellow;
+  transform: translateY(0.5rem);
+  height: 3rem;
+  width: 2.5rem;
+  right: 1rem;
+  bottom: 0;
+  clip-path: polygon(50% 25%, 100% 0, 100% 98%, 0 100%, 0 0);
 }
