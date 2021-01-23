@@ -54,51 +54,29 @@
   text-decoration: none;
 }
 
-.menu-switch-container{
+.menu-switch{
+  cursor: pointer;
+  display: inline-block;
+  background-color: white;
   width: 4.5rem;
   height: 1.5rem;
-}
-
-.menu-switch{
-  display: inline-block;
-  position: relative;
-  width: inherit;
-  height: inherit;
-}
-
-.menu-switch input{
-  opacity: 0;
-  height: 0;
-  width: 0;
+  border-radius: 5pt;
 }
 
 .menu-switch-slider{
-  cursor: pointer;
-  border-radius: 5pt;
-  position: absolute;
-  background-color: white;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: .4s;
-}
-
-.menu-switch-slider:before{
-  border-radius: 3pt;
-  position: absolute;
-  content: "";
-  height: 1rem;
-  width: 2rem;
-  left: 3pt;
-  bottom: 50%;
   background-color: var(--theme-blue);
-  transition: .4s;
-  transform: translateY(50%);
+  position: relative;
+  top: 15%;
+  left: 5%;
+  height: 70%;
+  width: 45%;
+  border-radius: 4pt;
+  transition: 0.5s;
 }
 
-.menu-switch input:checked + .menu-switch-slider:before {
-  transform: translateX(2rem) translateY(50%);
+.slider-right{
+  transform: translateX(100%);
+  transition: 0.4s;
 }
 
 .icon-switch-editor{

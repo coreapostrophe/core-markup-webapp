@@ -1,38 +1,54 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {NavigationEnd, Router} from "@angular/router";
+import {filter} from "rxjs/operators";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements AfterViewInit, OnDestroy {
 
   switchIsDecktool: boolean;
   menuCollapsed: boolean;
+  currentUrl: string;
+  urlSubscription: Subscription;
 
-  constructor(private route: Router) {
+  constructor(private router: Router) {
     this.switchIsDecktool = false;
     this.menuCollapsed = true;
   }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.urlSubscription = this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd))
+      .subscribe( x=> {
+        this.currentUrl = x['url'];
+        if(this.currentUrl.slice(0,7) === '/Decks'){
+          this.switchIsDecktool = true;
+        }
+        else if(this.currentUrl.slice(0,7) === '/Editor'){
+          this.switchIsDecktool = false;
+        }
+      }
+    );
   }
 
-  onSwitch(event){
-    this.switchIsDecktool = event.target.checked;
-    this.updateSwitch()
-  }
-
-  updateSwitch(){
+  onSwitch(){
+    this.switchIsDecktool = !this.switchIsDecktool;
     if(this.switchIsDecktool == true){
-      this.route.navigate(['/Decks']);
+      this.router.navigate(['/Decks']);
     } else {
-      this.route.navigate(['/Editor']);
+      this.router.navigate(['/Editor']);
     }
   }
 
-  onMenuDropdown(event){
+  onMenuDropdown(){
     this.menuCollapsed = !this.menuCollapsed;
+  }
+
+  ngOnDestroy() {
+    this.urlSubscription.unsubscribe();
   }
 }

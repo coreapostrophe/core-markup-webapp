@@ -17,17 +17,14 @@
         <button class="menu-bar-list-items">Help</button>
       </div>
       <img class="icon-switch-editor" [ngClass]="{'icon-grey': switchIsDecktool}" src="../../assets/svg/icon-switch-editor.svg">
-      <div class="menu-switch-container">
-        <label class="menu-switch">
-          <input type="checkbox" (change)="onSwitch($event)">
-          <span class="menu-switch-slider"></span>
-        </label>
+      <div class="menu-switch" (click)="onSwitch()">
+        <div class="menu-switch-slider" [ngClass]="{'slider-right': switchIsDecktool}"></div>
       </div>
       <img class="icon-switch-decktool" [ngClass]="{'icon-light': switchIsDecktool}" src="../../assets/svg/icon-switch-decktool.svg">
     </div>
     <div class="menu-bot-row">
       <img class="menu-dropdown-toggle" src="../../assets/svg/icon-menu-toggle.svg"
-           (click)="onMenuDropdown($event)" [ngClass]="{'menu-dropdown-expand': !menuCollapsed}">
+           (click)="onMenuDropdown()" [ngClass]="{'menu-dropdown-expand': !menuCollapsed}">
 
       <!--TOOLS PANEL-->
       <div class="panel">
