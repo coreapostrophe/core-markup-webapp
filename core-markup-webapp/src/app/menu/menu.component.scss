@@ -8,7 +8,6 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  transform: translateY(-40%);
   transition: 0.5s;
 }
 
@@ -125,7 +124,7 @@
 }
 
 .menu-expand{
-  transform: translateY(0%);
+  transform: translateY(40%);
   transition: 0.5s;
 }
 
