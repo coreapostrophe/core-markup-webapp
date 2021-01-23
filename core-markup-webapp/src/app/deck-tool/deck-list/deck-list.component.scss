@@ -21,17 +21,17 @@
 }
 
 .deck-list-item{
+  cursor: pointer;
   box-sizing: border-box;
-  padding: 10pt;
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--theme-dark);
   position: relative;
-  cursor: pointer;
+  padding: 10pt;
   margin: 10pt;
   display: inline-block;
-  background-color: white;
   border-radius: 0.8rem;
+  background-color: white;
   height: 15rem;
   width: 10rem;
   text-align: left;
@@ -39,6 +39,7 @@
 }
 
 .deck-list-item:after{
+  cursor: pointer;
   content: '';
   position: absolute;
   background-color: yellow;

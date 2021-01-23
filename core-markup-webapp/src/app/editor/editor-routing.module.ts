@@ -6,9 +6,7 @@ const routes: Routes = [
   {
     path:'',
     component: TextEditorComponent,
-    children:[
-      {path:'', component:TextEditorComponent, pathMatch:'full'}
-    ]
+    children:[]
   }
 ];
 
