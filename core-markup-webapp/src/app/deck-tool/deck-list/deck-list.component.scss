@@ -11,7 +11,9 @@
   text-align: center;
   box-sizing: border-box;
   overflow: auto;
+  border-radius: 0.8rem;
   height: calc(100% - 3rem);
+  box-shadow: inset 0 0 5pt rgba(0,0,0,0.25);
 }
 
 .deck-list-add{
@@ -41,12 +43,12 @@
   width: 10rem;
   text-align: left;
   vertical-align:top;
-  transition: 0.1s;
+  transition: 0.4s;
 }
 
 .deck-list-item:hover{
   transform: scale(1.05);
-  transition: 0.1s;
+  transition: 0.4s;
 }
 
 .deck-list-item:after{
@@ -62,39 +64,29 @@
   clip-path: polygon(50% 25%, 100% 0, 100% 98%, 0 100%, 0 0);
 }
 
+
 .deck-options-container{
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   height: 3rem;
-  border-bottom: 1pt solid var(--theme-dark);
-}
-
-.icon-arrow-back{
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 100%;
-  margin: 0 8pt;
-  display: inline-block;
-  height: 1rem;
-  transition: 0.5s;
-}
-
-.icon-arrow-back:hover{
-  transition: 0.5s;
-  background-color: white;
-}
-
-.rm-90{
-  transform: rotate(-90deg);
 }
 
 .directory{
+  cursor: pointer;
+  margin: 0 15pt;
   display: flex;
   align-items: center;
-  padding: 0 5pt;
-  border-radius: 0.5rem;
-  border: 1pt solid var(--theme-dark);
+  padding: 0 10pt;
   width: 10rem;
   height: 1.5rem;
   color: var(--theme-dark);
+  border-radius: 1rem;
+  background-color: white;
+  transition: all 0.4s;
+}
+
+.directory:hover{
+  filter: brightness(0.95);
+  transition: all 0.4s;
 }

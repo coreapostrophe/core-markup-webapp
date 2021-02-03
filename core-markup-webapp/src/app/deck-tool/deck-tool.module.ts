@@ -7,9 +7,9 @@ import { DeckListComponent } from './deck-list/deck-list.component';
 
 @NgModule({
   declarations: [DeckListComponent],
-  imports: [
-    CommonModule,
-    DeckToolRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        DeckToolRoutingModule
+    ]
 })
 export class DeckToolModule { }
