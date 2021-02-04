@@ -13,7 +13,7 @@
 
 .menu-bar{
   border-radius: 0 0 0.8rem 0.8rem;
-  box-shadow: 0pt 2pt 5pt rgba(0,0,0, 0.2);
+  border: 0.5pt solid var(--theme-outline);
   display: inline-block;
   height: 8rem;
   width: 60vw;
