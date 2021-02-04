@@ -1,19 +1,7 @@
-<div class="deck-list-container">
-  <div class="deck-options-container">
-    <div class="directory">
-      None
-    </div>
-  </div>
-  <div class="deck-list-group">
-    <div class="deck-list-add"></div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
-    <div class="deck-list-item">Sample Deck with Flashcards</div>
+<div class="deck-list-group">
+  <div class="deck-list-add"></div>
+  <div class="deck-list-item" *ngFor="let deck of decks">
+    {{deck.Title}}
+    <div class="deck-mark" [ngStyle]="{'backgroundColor': deck.ColorTag}"></div>
   </div>
 </div>

@@ -25,7 +25,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
       filter((event) => event instanceof NavigationEnd))
       .subscribe( x=> {
         this.currentUrl = x['url'];
-        if(this.currentUrl.slice(0,7) === '/Decks'){
+        if(this.currentUrl.slice(0,6) === '/Decks'){
           this.switchIsDecktool = true;
         }
         else if(this.currentUrl.slice(0,7) === '/Editor'){

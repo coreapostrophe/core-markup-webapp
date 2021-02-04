@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Deck} from "../../models/deck-model";
 
 @Component({
   selector: 'app-deck-list',
@@ -7,7 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeckListComponent implements OnInit {
 
-  constructor() { }
+  decks: Deck[];
+
+  constructor() {
+    this.decks = [
+      {
+        Title: 'Sample Deck',
+        ColorTag: 'yellow'
+      },
+      {
+        Title: 'Sample Deck',
+        ColorTag: 'red'
+      },
+      {
+        Title: 'Sample Deck',
+        ColorTag: 'blue'
+      },
+      {
+        Title: 'Sample Deck',
+        ColorTag: 'violet'
+      },
+      {
+        Title: 'Sample Deck',
+        ColorTag: 'orange'
+      },
+    ];
+  }
 
   ngOnInit(): void {
   }
