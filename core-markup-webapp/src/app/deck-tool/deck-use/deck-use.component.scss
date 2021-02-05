@@ -1,0 +1,68 @@
+.flashcard-tool-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: calc(100% - 3rem);
+}
+
+.current-card{
+  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--theme-dark);
+  display: inline-block;
+  border-radius: 0.8rem;
+  background-color: white;
+  height: 25rem;
+  width: 15rem;
+  text-align: left;
+  vertical-align:top;
+  border: 0.5pt solid var(--theme-outline);
+  transition: all 0.4s;
+}
+
+.btn-remember, .btn-forgot{
+  cursor: pointer;
+  margin: 4rem;
+  height: 4rem;
+  width: 4rem;
+  transition: transform 0.4s;
+}
+
+.btn-remember:hover, .btn-forgot:hover{
+  transform: scale(1.05);
+  transition: transform 0.4s;
+}
+
+.btn-remember:after, .btn-forgot:after{
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.7rem;
+  bottom: 100%;
+}
+
+.btn-remember:after{
+  content: '[ Enter ]';
+}
+
+.btn-forgot:after{
+  content: '[ Bckspc ]';
+}
+
+.btn-remember:hover + .current-card{
+  background-color: red;
+}
+
+.current-card-rot_remember{
+  transform: rotate(5deg);
+  transform-origin: 50% 120%;
+  transition: transform 0.4s;
+}
+
+.current-card-rot_forgot{
+  transform: rotate(-5deg);
+  transform-origin: 50% 120%;
+  transition: transform 0.4s;
+}

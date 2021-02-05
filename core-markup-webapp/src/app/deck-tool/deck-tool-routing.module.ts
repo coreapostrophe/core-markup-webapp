@@ -11,7 +11,7 @@ const routes: Routes = [
     children:[
       {path:'', pathMatch:'full', redirectTo:'List'},
       {path:'List', component: DeckListComponent},
-      {path:'Flashcard', component: DeckUseComponent}
+      {path:'Flashcard/:id', component: DeckUseComponent}
     ]
   }
 ];

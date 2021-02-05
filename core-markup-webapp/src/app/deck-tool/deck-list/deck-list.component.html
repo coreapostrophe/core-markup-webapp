@@ -1,6 +1,6 @@
 <div class="deck-list-group">
   <div class="deck-list-add"></div>
-  <div class="deck-list-item" *ngFor="let deck of decks">
+  <div class="deck-list-item" (click)="onClickDeck($event, deck.ID)" *ngFor="let deck of decks">
     {{deck.Title}}
     <div class="deck-mark" [ngStyle]="{'backgroundColor': deck.ColorTag}"></div>
   </div>

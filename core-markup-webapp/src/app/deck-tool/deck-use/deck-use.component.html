@@ -1,1 +1,9 @@
-<p>deck-use works!</p>
+<div class="flashcard-tool-container">
+  <div class="btn-forgot" (mouseover)="onMouseEnterForgot()" (mouseout)="onMouseLeaveForgot()">
+    <img src="../../../assets/svg/icon-forgot.svg">
+  </div>
+  <div class="current-card" #currentCard></div>
+  <div class="btn-remember" (mouseover)="onMouseEnterRemember()" (mouseout)="onMouseLeaveRemember()">
+    <img src="../../../assets/svg/icon-remembered.svg">
+  </div>
+</div>
