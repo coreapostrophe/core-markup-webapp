@@ -54,6 +54,17 @@ class CoreMarkupConsumer(CoreMarkupListener):
             level = self.get_depth(detail_enum_question_text, CoreMarkupConsumer.SYMBOL_DETAIL)
             # print(detail_enum_question_text, level)
 
+    def enterQuestion(self, ctx):
+        """
+        Fired when a question object is read
+        """
+        question_text = ctx.QUESTION().getText()
+        detail_tokens = ctx.detail()
+
+        for detail in detail_tokens:
+            detail_text = detail.getText()
+            level = self.get_depth(detail_text, CoreMarkupConsumer.SYMBOL_DETAIL)
+
     def get_depth(self, text, delimiter):
         """
         Counts the occurence of a delimiter in a string.
