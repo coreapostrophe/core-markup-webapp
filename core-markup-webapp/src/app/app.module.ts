@@ -8,6 +8,7 @@ import { DropdownDirective } from './directives/dropdown.directive';
 import {EditorModule} from "./editor/editor.module";
 import {MonacoEditorModule} from "ngx-monaco-editor";
 import {DeckToolModule} from "./deck-tool/deck-tool.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import {DeckToolModule} from "./deck-tool/deck-tool.module";
         DropdownDirective
     ],
     imports: [
+        BrowserAnimationsModule,
         BrowserModule,
         AppRoutingModule,
         EditorModule,

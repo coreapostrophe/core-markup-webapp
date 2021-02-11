@@ -7,6 +7,7 @@
 }
 
 .current-card{
+  position: absolute;
   box-sizing: border-box;
   font-weight: bold;
   font-size: 1.2rem;
@@ -23,11 +24,20 @@
 }
 
 .btn-remember, .btn-forgot{
+  z-index: 1;
   cursor: pointer;
-  margin: 4rem;
   height: 4rem;
   width: 4rem;
   transition: transform 0.4s;
+}
+
+.btn-remember{
+  margin-left: 10rem;
+
+}
+
+.btn-forgot{
+  margin-right: 10rem;
 }
 
 .btn-remember:hover, .btn-forgot:hover{
