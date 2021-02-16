@@ -45,7 +45,6 @@ export class DeckListComponent implements OnInit {
   }
 
   onClickDeck(event, deckID){
-    console.log(deckID);
     this.router.navigate(['Flashcard',deckID], {relativeTo: this.route.parent}).then(e=>{
       // error handling
     });

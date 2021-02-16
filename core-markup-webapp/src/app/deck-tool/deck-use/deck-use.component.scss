@@ -7,6 +7,7 @@
 }
 
 .current-card{
+  cursor: pointer;
   position: absolute;
   box-sizing: border-box;
   font-weight: bold;
@@ -63,16 +64,4 @@
 
 .btn-remember:hover + .current-card{
   background-color: red;
-}
-
-.current-card-rot_remember{
-  transform: rotate(5deg);
-  transform-origin: 50% 120%;
-  transition: transform 0.4s;
-}
-
-.current-card-rot_forgot{
-  transform: rotate(-5deg);
-  transform-origin: 50% 120%;
-  transition: transform 0.4s;
 }
