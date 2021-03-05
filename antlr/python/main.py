@@ -39,10 +39,21 @@ class CoreMarkupConsumer(CoreMarkupListener):
         for detail in detail_tokens:
             detail_text = detail.getText()
             detail_level = self.get_depth(detail_text, CoreMarkupConsumer.SYMBOL_DETAIL)
-            details.append({"type": "detail", "value": self.clean_text(detail_text, detail_level), "level": detail_level})
+            details.append(
+                {
+                    "type": "detail",
+                    "value": self.clean_text(detail_text, detail_level),
+                    "level": detail_level,
+                }
+            )
 
-        self.entries.append({"type": "question", "value": self.clean_text(question_text, 1), "children": details})
-
+        self.entries.append(
+            {
+                "type": "question",
+                "value": self.clean_text(question_text, 1),
+                "children": details,
+            }
+        )
 
     def enterEnum_question(self, ctx):
         """
@@ -71,8 +82,12 @@ class CoreMarkupConsumer(CoreMarkupListener):
             # print([d.getText() for d in detail_tokens])
 
         for detail_enum_question in detail_enum_question_tokens:
-            detail_enum_question_text = detail_enum_question.DETAIL_ENUM_QUESTION().getText()
-            level = self.get_depth(detail_enum_question_text, CoreMarkupConsumer.SYMBOL_DETAIL)
+            detail_enum_question_text = (
+                detail_enum_question.DETAIL_ENUM_QUESTION().getText()
+            )
+            level = self.get_depth(
+                detail_enum_question_text, CoreMarkupConsumer.SYMBOL_DETAIL
+            )
             # print(detail_enum_question_text, level)
 
     def clean_text(self, text, level):
@@ -108,6 +123,7 @@ def main(argv):
     # Print entries
     e = consumer.entries
     print(json.dumps(e))
+
 
 if __name__ == "__main__":
     main(sys.argv)

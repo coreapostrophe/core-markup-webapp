@@ -1,0 +1,1 @@
+antlr4 CoreMarkup.g4 && javac CoreMarkup*.java
