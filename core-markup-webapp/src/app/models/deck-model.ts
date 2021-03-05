@@ -1,5 +1,8 @@
+import {Card} from "./card-model";
+
 export class Deck{
-  ID: number;
-  Title: string;
-  ColorTag: string;
+  id: number;
+  title: string;
+  colorTag: string;
+  cards: Card[];
 }

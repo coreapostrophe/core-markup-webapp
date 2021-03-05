@@ -1,9 +1,11 @@
 <div class="flashcard-tool-container">
-  <div class="btn-forgot" (mouseover)="onMouseEnterForgot()" (mouseout)="onMouseLeaveForgot()">
+  <div  class="btn-forgot" (click)="onCardDecision(false)">
     <img src="../../../assets/svg/icon-forgot.svg">
   </div>
-  <div class="current-card" #currentCard></div>
-  <div class="btn-remember" (mouseover)="onMouseEnterRemember()" (mouseout)="onMouseLeaveRemember()">
+  <div class="current-card" [@card] *ngFor="let card of domCard" #currentCard>
+    {{ (cardState == 'flipped') ? card.back : card.front }}
+  </div>
+  <div  class="btn-remember" (click)="onCardDecision(true)">
     <img src="../../../assets/svg/icon-remembered.svg">
   </div>
 </div>
