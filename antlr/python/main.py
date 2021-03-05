@@ -14,15 +14,18 @@ class CoreMarkupConsumer(CoreMarkupListener):
     SYMBOL_ENUM_QUESTION = "$"
 
     def __init__(self):
-        pass
+        self.entries = []
 
+    def push(self, data_type, value, level):
+        self.entries.append({"type": data_type, "value": value, "level": level})
+    
     def enterHeader(self, ctx):
         """
         Fired when a header object is read
         """
         header_text = ctx.getText()
         header_level = self.get_depth(header_text, CoreMarkupConsumer.SYMBOL_HEADER)
-        # print(header, header_level)
+        self.push("header", header_text[header_level:].strip(), header_level)
 
     def enterEnum_question(self, ctx):
         """
@@ -46,11 +49,12 @@ class CoreMarkupConsumer(CoreMarkupListener):
             level = self.get_depth(
                 detail_question_text, CoreMarkupConsumer.SYMBOL_DETAIL
             )
-            print(detail_question_text, level)
-            print([d.getText() for d in detail_tokens])
+
+            # print(detail_question_text, level)
+            # print([d.getText() for d in detail_tokens])
 
         for detail_enum_question in detail_enum_question_tokens:
-            detail_enum_question_text = detail_enum_question.ENUM_QUESTION().getText()
+            detail_enum_question_text = detail_enum_question.DETAIL_ENUM_QUESTION().getText()
             level = self.get_depth(detail_enum_question_text, CoreMarkupConsumer.SYMBOL_DETAIL)
             # print(detail_enum_question_text, level)
 
@@ -91,7 +95,7 @@ def main(argv):
     consumer = CoreMarkupConsumer()
     walker = ParseTreeWalker()
     walker.walk(consumer, tree)
-
+    # print(consumer.entries)
 
 if __name__ == "__main__":
     main(sys.argv)
