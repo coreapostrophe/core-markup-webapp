@@ -34,6 +34,18 @@ public class CoreMarkupBaseListener implements CoreMarkupListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitQuestion(CoreMarkupParser.QuestionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNested_question(CoreMarkupParser.Nested_questionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNested_question(CoreMarkupParser.Nested_questionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

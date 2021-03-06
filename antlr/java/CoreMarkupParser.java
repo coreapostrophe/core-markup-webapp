@@ -16,12 +16,13 @@ public class CoreMarkupParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		HEADER=1, QUESTION=2, DETAIL=3, NEWLINE=4;
+		HEADER=1, QUESTION=2, QUESTION_NEST=3, DETAIL_NEST=4, DETAIL=5, NEWLINE=6, 
+		INDENT=7, DEDENT=8;
 	public static final int
-		RULE_cmu = 0, RULE_question = 1;
+		RULE_cmu = 0, RULE_question = 1, RULE_nested_question = 2;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"cmu", "question"
+			"cmu", "question", "nested_question"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -33,7 +34,8 @@ public class CoreMarkupParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "HEADER", "QUESTION", "DETAIL", "NEWLINE"
+			null, "HEADER", "QUESTION", "QUESTION_NEST", "DETAIL_NEST", "DETAIL", 
+			"NEWLINE", "INDENT", "DEDENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -120,23 +122,23 @@ public class CoreMarkupParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(6); 
+			setState(8); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(6);
+				setState(8);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case QUESTION:
 					{
-					setState(4);
+					setState(6);
 					question();
 					}
 					break;
 				case HEADER:
 					{
-					setState(5);
+					setState(7);
 					match(HEADER);
 					}
 					break;
@@ -144,11 +146,11 @@ public class CoreMarkupParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(8); 
+				setState(10); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==HEADER || _la==QUESTION );
-			setState(10);
+			setState(12);
 			match(EOF);
 			}
 		}
@@ -165,11 +167,11 @@ public class CoreMarkupParser extends Parser {
 
 	public static class QuestionContext extends ParserRuleContext {
 		public TerminalNode QUESTION() { return getToken(CoreMarkupParser.QUESTION, 0); }
-		public List<QuestionContext> question() {
-			return getRuleContexts(QuestionContext.class);
+		public List<Nested_questionContext> nested_question() {
+			return getRuleContexts(Nested_questionContext.class);
 		}
-		public QuestionContext question(int i) {
-			return getRuleContext(QuestionContext.class,i);
+		public Nested_questionContext nested_question(int i) {
+			return getRuleContext(Nested_questionContext.class,i);
 		}
 		public List<TerminalNode> DETAIL() { return getTokens(CoreMarkupParser.DETAIL); }
 		public TerminalNode DETAIL(int i) {
@@ -192,32 +194,108 @@ public class CoreMarkupParser extends Parser {
 	public final QuestionContext question() throws RecognitionException {
 		QuestionContext _localctx = new QuestionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_question);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(14);
+			match(QUESTION);
+			setState(17); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				setState(17);
+				_errHandler.sync(this);
+				switch (_input.LA(1)) {
+				case QUESTION_NEST:
+					{
+					setState(15);
+					nested_question();
+					}
+					break;
+				case DETAIL:
+					{
+					setState(16);
+					match(DETAIL);
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				}
+				setState(19); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( _la==QUESTION_NEST || _la==DETAIL );
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Nested_questionContext extends ParserRuleContext {
+		public TerminalNode QUESTION_NEST() { return getToken(CoreMarkupParser.QUESTION_NEST, 0); }
+		public List<Nested_questionContext> nested_question() {
+			return getRuleContexts(Nested_questionContext.class);
+		}
+		public Nested_questionContext nested_question(int i) {
+			return getRuleContext(Nested_questionContext.class,i);
+		}
+		public List<TerminalNode> DETAIL_NEST() { return getTokens(CoreMarkupParser.DETAIL_NEST); }
+		public TerminalNode DETAIL_NEST(int i) {
+			return getToken(CoreMarkupParser.DETAIL_NEST, i);
+		}
+		public Nested_questionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_nested_question; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterNested_question(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitNested_question(this);
+		}
+	}
+
+	public final Nested_questionContext nested_question() throws RecognitionException {
+		Nested_questionContext _localctx = new Nested_questionContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_nested_question);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(12);
-			match(QUESTION);
-			setState(15); 
+			setState(21);
+			match(QUESTION_NEST);
+			setState(24); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
 				switch (_alt) {
 				case 1:
 					{
-					setState(15);
+					setState(24);
 					_errHandler.sync(this);
 					switch (_input.LA(1)) {
-					case QUESTION:
+					case QUESTION_NEST:
 						{
-						setState(13);
-						question();
+						setState(22);
+						nested_question();
 						}
 						break;
-					case DETAIL:
+					case DETAIL_NEST:
 						{
-						setState(14);
-						match(DETAIL);
+						setState(23);
+						match(DETAIL_NEST);
 						}
 						break;
 					default:
@@ -228,9 +306,9 @@ public class CoreMarkupParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(17); 
+				setState(26); 
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
@@ -246,13 +324,16 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\6\26\4\2\t\2\4\3"+
-		"\t\3\3\2\3\2\6\2\t\n\2\r\2\16\2\n\3\2\3\2\3\3\3\3\3\3\6\3\22\n\3\r\3\16"+
-		"\3\23\3\3\2\2\4\2\4\2\2\2\27\2\b\3\2\2\2\4\16\3\2\2\2\6\t\5\4\3\2\7\t"+
-		"\7\3\2\2\b\6\3\2\2\2\b\7\3\2\2\2\t\n\3\2\2\2\n\b\3\2\2\2\n\13\3\2\2\2"+
-		"\13\f\3\2\2\2\f\r\7\2\2\3\r\3\3\2\2\2\16\21\7\4\2\2\17\22\5\4\3\2\20\22"+
-		"\7\5\2\2\21\17\3\2\2\2\21\20\3\2\2\2\22\23\3\2\2\2\23\21\3\2\2\2\23\24"+
-		"\3\2\2\2\24\5\3\2\2\2\6\b\n\21\23";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n\37\4\2\t\2\4\3"+
+		"\t\3\4\4\t\4\3\2\3\2\6\2\13\n\2\r\2\16\2\f\3\2\3\2\3\3\3\3\3\3\6\3\24"+
+		"\n\3\r\3\16\3\25\3\4\3\4\3\4\6\4\33\n\4\r\4\16\4\34\3\4\2\2\5\2\4\6\2"+
+		"\2\2!\2\n\3\2\2\2\4\20\3\2\2\2\6\27\3\2\2\2\b\13\5\4\3\2\t\13\7\3\2\2"+
+		"\n\b\3\2\2\2\n\t\3\2\2\2\13\f\3\2\2\2\f\n\3\2\2\2\f\r\3\2\2\2\r\16\3\2"+
+		"\2\2\16\17\7\2\2\3\17\3\3\2\2\2\20\23\7\4\2\2\21\24\5\6\4\2\22\24\7\7"+
+		"\2\2\23\21\3\2\2\2\23\22\3\2\2\2\24\25\3\2\2\2\25\23\3\2\2\2\25\26\3\2"+
+		"\2\2\26\5\3\2\2\2\27\32\7\5\2\2\30\33\5\6\4\2\31\33\7\6\2\2\32\30\3\2"+
+		"\2\2\32\31\3\2\2\2\33\34\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35\7\3\2"+
+		"\2\2\b\n\f\23\25\32\34";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
