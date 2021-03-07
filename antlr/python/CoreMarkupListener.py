@@ -26,15 +26,6 @@ class CoreMarkupListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CoreMarkupParser#detail.
-    def enterDetail(self, ctx:CoreMarkupParser.DetailContext):
-        pass
-
-    # Exit a parse tree produced by CoreMarkupParser#detail.
-    def exitDetail(self, ctx:CoreMarkupParser.DetailContext):
-        pass
-
-
     # Enter a parse tree produced by CoreMarkupParser#question.
     def enterQuestion(self, ctx:CoreMarkupParser.QuestionContext):
         pass
@@ -44,30 +35,12 @@ class CoreMarkupListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CoreMarkupParser#enum_question.
-    def enterEnum_question(self, ctx:CoreMarkupParser.Enum_questionContext):
+    # Enter a parse tree produced by CoreMarkupParser#nested_question.
+    def enterNested_question(self, ctx:CoreMarkupParser.Nested_questionContext):
         pass
 
-    # Exit a parse tree produced by CoreMarkupParser#enum_question.
-    def exitEnum_question(self, ctx:CoreMarkupParser.Enum_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by CoreMarkupParser#detail_question.
-    def enterDetail_question(self, ctx:CoreMarkupParser.Detail_questionContext):
-        pass
-
-    # Exit a parse tree produced by CoreMarkupParser#detail_question.
-    def exitDetail_question(self, ctx:CoreMarkupParser.Detail_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by CoreMarkupParser#detail_enum_question.
-    def enterDetail_enum_question(self, ctx:CoreMarkupParser.Detail_enum_questionContext):
-        pass
-
-    # Exit a parse tree produced by CoreMarkupParser#detail_enum_question.
-    def exitDetail_enum_question(self, ctx:CoreMarkupParser.Detail_enum_questionContext):
+    # Exit a parse tree produced by CoreMarkupParser#nested_question.
+    def exitNested_question(self, ctx:CoreMarkupParser.Nested_questionContext):
         pass
 
 

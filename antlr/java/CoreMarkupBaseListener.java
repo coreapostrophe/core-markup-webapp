@@ -27,6 +27,18 @@ public class CoreMarkupBaseListener implements CoreMarkupListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterHeader(CoreMarkupParser.HeaderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHeader(CoreMarkupParser.HeaderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterQuestion(CoreMarkupParser.QuestionContext ctx) { }
 	/**
 	 * {@inheritDoc}
