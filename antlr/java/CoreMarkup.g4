@@ -6,7 +6,7 @@ grammar CoreMarkup;
 cmu                         : (header | question)+ EOF;
 header                      : HEADER_TAG TEXT+;
 question                    : QUESTION_TAG TEXT+ (nested_question | detail)+;
-nested_question             : NESTED_QUESTION_TAG TEXT* (nested_question | nested_detail)+;
+nested_question             : NESTED_QUESTION_TAG TEXT* nested_detail*;
 detail                      : DETAIL_TAG TEXT+;
 nested_detail               : NESTED_DETAIL_TAG TEXT+;
 
@@ -22,7 +22,7 @@ fragment SYM_COLON          : ':';
 fragment LOWERCASE          : [a-z];
 fragment UPPERCASE          : [A-Z];
 fragment DIGIT              : [0-9];
-fragment SYMBOL             : [`!@#$%^&*()-];
+fragment SYMBOL             : [`!@#$%^&*().-];
 fragment WS                 : [ \t];
 
 HEADER_TAG                  : SYM_HEADER+ SYM_COLON;
