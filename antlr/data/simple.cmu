@@ -1,1 +1,11 @@
-## Hello my dear #
+#: My name is dave microwave!@
+
+
+$: Fixed Point Representation
+-*: Unsigned Number
+--: leftmost bit is the most significant bit
+-*: Signed Number
+--: leftmost bit represents the sign
+--: leftmost bit represents the sign
+--: leftmost bit represents the sign
+-:not
