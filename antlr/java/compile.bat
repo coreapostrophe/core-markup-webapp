@@ -1,1 +1,1 @@
-antlr4 CoreMarkup.g4 && javac CoreMarkup*.java
+antlr4 CoreMarkupLexer.g4 && antlr4 CoreMarkupParser.g4 && javac CoreMarkup*.java

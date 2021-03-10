@@ -1,4 +1,4 @@
-// Generated from CoreMarkup.g4 by ANTLR 4.9.1
+// Generated from CoreMarkupParser.g4 by ANTLR 4.9.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -17,7 +17,7 @@ public class CoreMarkupParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		HEADER_TAG=1, NESTED_QUESTION_TAG=2, QUESTION_TAG=3, NESTED_DETAIL_TAG=4, 
-		DETAIL_TAG=5, TEXT=6, NEWLINE=7;
+		DETAIL_TAG=5, NEWLINE=6, TEXT=7;
 	public static final int
 		RULE_cmu = 0, RULE_header = 1, RULE_question = 2, RULE_nested_question = 3, 
 		RULE_detail = 4, RULE_nested_detail = 5;
@@ -36,7 +36,7 @@ public class CoreMarkupParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "HEADER_TAG", "NESTED_QUESTION_TAG", "QUESTION_TAG", "NESTED_DETAIL_TAG", 
-			"DETAIL_TAG", "TEXT", "NEWLINE"
+			"DETAIL_TAG", "NEWLINE", "TEXT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -74,7 +74,7 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "CoreMarkup.g4"; }
+	public String getGrammarFileName() { return "CoreMarkupParser.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -110,11 +110,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cmu; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterCmu(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterCmu(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitCmu(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitCmu(this);
 		}
 	}
 
@@ -180,11 +180,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_header; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterHeader(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterHeader(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitHeader(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitHeader(this);
 		}
 	}
 
@@ -248,11 +248,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_question; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterQuestion(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterQuestion(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitQuestion(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitQuestion(this);
 		}
 	}
 
@@ -338,11 +338,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_nested_question; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterNested_question(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterNested_question(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitNested_question(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitNested_question(this);
 		}
 	}
 
@@ -408,11 +408,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_detail; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterDetail(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterDetail(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitDetail(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitDetail(this);
 		}
 	}
 
@@ -464,11 +464,11 @@ public class CoreMarkupParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_nested_detail; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).enterNested_detail(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).enterNested_detail(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CoreMarkupListener ) ((CoreMarkupListener)listener).exitNested_detail(this);
+			if ( listener instanceof CoreMarkupParserListener ) ((CoreMarkupParserListener)listener).exitNested_detail(this);
 		}
 	}
 
@@ -517,15 +517,15 @@ public class CoreMarkupParser extends Parser {
 		"\3\7\2\2\b\2\4\6\b\n\f\2\2\2E\2\20\3\2\2\2\4\26\3\2\2\2\6\34\3\2\2\2\b"+
 		"(\3\2\2\2\n\65\3\2\2\2\f;\3\2\2\2\16\21\5\4\3\2\17\21\5\6\4\2\20\16\3"+
 		"\2\2\2\20\17\3\2\2\2\21\22\3\2\2\2\22\20\3\2\2\2\22\23\3\2\2\2\23\24\3"+
-		"\2\2\2\24\25\7\2\2\3\25\3\3\2\2\2\26\30\7\3\2\2\27\31\7\b\2\2\30\27\3"+
+		"\2\2\2\24\25\7\2\2\3\25\3\3\2\2\2\26\30\7\3\2\2\27\31\7\t\2\2\30\27\3"+
 		"\2\2\2\31\32\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5\3\2\2\2\34\36\7"+
-		"\5\2\2\35\37\7\b\2\2\36\35\3\2\2\2\37 \3\2\2\2 \36\3\2\2\2 !\3\2\2\2!"+
+		"\5\2\2\35\37\7\t\2\2\36\35\3\2\2\2\37 \3\2\2\2 \36\3\2\2\2 !\3\2\2\2!"+
 		"$\3\2\2\2\"%\5\b\5\2#%\5\n\6\2$\"\3\2\2\2$#\3\2\2\2%&\3\2\2\2&$\3\2\2"+
-		"\2&\'\3\2\2\2\'\7\3\2\2\2(,\7\4\2\2)+\7\b\2\2*)\3\2\2\2+.\3\2\2\2,*\3"+
+		"\2&\'\3\2\2\2\'\7\3\2\2\2(,\7\4\2\2)+\7\t\2\2*)\3\2\2\2+.\3\2\2\2,*\3"+
 		"\2\2\2,-\3\2\2\2-\62\3\2\2\2.,\3\2\2\2/\61\5\f\7\2\60/\3\2\2\2\61\64\3"+
 		"\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2\63\t\3\2\2\2\64\62\3\2\2\2\65\67\7"+
-		"\7\2\2\668\7\b\2\2\67\66\3\2\2\289\3\2\2\29\67\3\2\2\29:\3\2\2\2:\13\3"+
-		"\2\2\2;=\7\6\2\2<>\7\b\2\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\r"+
+		"\7\2\2\668\7\t\2\2\67\66\3\2\2\289\3\2\2\29\67\3\2\2\29:\3\2\2\2:\13\3"+
+		"\2\2\2;=\7\6\2\2<>\7\t\2\2=<\3\2\2\2>?\3\2\2\2?=\3\2\2\2?@\3\2\2\2@\r"+
 		"\3\2\2\2\f\20\22\32 $&,\629?";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
