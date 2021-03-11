@@ -1,13 +1,28 @@
 [
     {
-        "type": "header",
-        "value": "Basic Ways of Representing Information",
-        "level": 1
+        "headers": ["Data Representation", "Number Systems and Base Conversion"],
+        "children": [
+            {
+                "question": "Advantages of Digital Techniques",
+                "enumerable": true,
+                "details": [
+                    "Digital system design is easier",
+                    "Information storage is easy",
+                    "Greater precision and accuracy",
+                    "Programmability",
+                    "Less susceptible to noise",
+                    "Digital circuitry can be fabricated on IC chips"
+                ]
+            }
+        ]
     },
     {
-        "type": "enum_question",
+        "headers": ["Data Representation", "Number Systems and Base Conversion"],
         "children": [
-            
+            {
+                "question": "Base-r to Decimal",
+                "details": ["Get the sum"]
+            }
         ]
     }
 ]

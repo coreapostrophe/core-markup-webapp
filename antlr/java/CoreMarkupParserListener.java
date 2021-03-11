@@ -17,6 +17,16 @@ public interface CoreMarkupParserListener extends ParseTreeListener {
 	 */
 	void exitCmu(CoreMarkupParser.CmuContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CoreMarkupParser#label}.
+	 * @param ctx the parse tree
+	 */
+	void enterLabel(CoreMarkupParser.LabelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CoreMarkupParser#label}.
+	 * @param ctx the parse tree
+	 */
+	void exitLabel(CoreMarkupParser.LabelContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CoreMarkupParser#header}.
 	 * @param ctx the parse tree
 	 */

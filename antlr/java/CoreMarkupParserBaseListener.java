@@ -27,6 +27,18 @@ public class CoreMarkupParserBaseListener implements CoreMarkupParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLabel(CoreMarkupParser.LabelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLabel(CoreMarkupParser.LabelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterHeader(CoreMarkupParser.HeaderContext ctx) { }
 	/**
 	 * {@inheritDoc}
