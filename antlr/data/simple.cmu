@@ -1,12 +1,10 @@
 # header
 
-$ Advantages of Digital Techniques
-- Digital system design is easier
-- Information storage is easy
-- Greater precision and accuracy
-- Programmability
-- Less susceptible to noise
-- Digital circuitry can be fabricated on IC chips
--$ nested question
---$ nested someone
----
+$ Q1
+- d1
+-$ Q2
+--$ Q3
+--- d2
+---$ Q4
+---- d3
+- d1

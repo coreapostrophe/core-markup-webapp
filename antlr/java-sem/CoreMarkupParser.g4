@@ -31,5 +31,5 @@ header                      : HEADER_TAG label;
 
 question                    : { reset(); } t=QUESTION_TAG label (question_detail | detail)+;
 question_detail             : qd=QUESTION_DETAIL_TAG { bounds($qd, -1) }? label { level = len($qd); } (question_detail | nested_detail)+;
-nested_detail               : nd=NESTED_DETAIL_TAG { System.out.println(level); } { bounds($nd, 0) }? label;
+nested_detail               : nd=NESTED_DETAIL_TAG { bounds($nd, 0) }? label;
 detail                      : d=DETAIL_TAG { bounds($d, 0) }? label;
