@@ -44,21 +44,12 @@ class CoreMarkupParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CoreMarkupParser#nested_question.
-    def enterNested_question(self, ctx:CoreMarkupParser.Nested_questionContext):
+    # Enter a parse tree produced by CoreMarkupParser#question_detail.
+    def enterQuestion_detail(self, ctx:CoreMarkupParser.Question_detailContext):
         pass
 
-    # Exit a parse tree produced by CoreMarkupParser#nested_question.
-    def exitNested_question(self, ctx:CoreMarkupParser.Nested_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by CoreMarkupParser#detail.
-    def enterDetail(self, ctx:CoreMarkupParser.DetailContext):
-        pass
-
-    # Exit a parse tree produced by CoreMarkupParser#detail.
-    def exitDetail(self, ctx:CoreMarkupParser.DetailContext):
+    # Exit a parse tree produced by CoreMarkupParser#question_detail.
+    def exitQuestion_detail(self, ctx:CoreMarkupParser.Question_detailContext):
         pass
 
 
@@ -68,6 +59,15 @@ class CoreMarkupParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by CoreMarkupParser#nested_detail.
     def exitNested_detail(self, ctx:CoreMarkupParser.Nested_detailContext):
+        pass
+
+
+    # Enter a parse tree produced by CoreMarkupParser#detail.
+    def enterDetail(self, ctx:CoreMarkupParser.DetailContext):
+        pass
+
+    # Exit a parse tree produced by CoreMarkupParser#detail.
+    def exitDetail(self, ctx:CoreMarkupParser.DetailContext):
         pass
 
 

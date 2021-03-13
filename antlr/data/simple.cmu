@@ -1,11 +1,14 @@
 # My name is dave microwave!@ #
 
+## Yow
 
-$ Fixed Point Representation
--* Unsigned Number
--- leftmost bit is the most significant bit
--* Signed Number
--- leftmost bit represents the sign
--- leftmost bit represents the sign
--- leftmost bit represents the sign
--not
+$ top q
+-* nested Q1
+-- nested a
+-* nested Q2
+-- nested a
+-- nested b
+-- nested c
+--* nested Q3
+--- nested a
+- top a

@@ -37,10 +37,19 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         enumerable = (
             ctx.QUESTION_TAG().getText() == CoreMarkupConsumer.SYMBOL_ENUM_QUESTION
         )
-        question = {"concept": label, "enumerable": enumerable, "headers": [h["label"] for h in self.headers]}
-
+        details = [d.label().getText().strip() for d in ctx.detail()]
+        headers = [h["label"] for h in self.headers]
+        question = {
+            "headers": headers,
+            "concept": label,
+            "enumerable": enumerable,
+            "details": details
+        }
         self.questions.append(question)
-
+    
+    # Enter a parse tree produced by CoreMarkupParser#question_detail.
+    def enterQuestion_detail(self, ctx:CoreMarkupParser.Question_detailContext):
+        pass
 
 def main(argv):
     # Provide Sample.cmu file

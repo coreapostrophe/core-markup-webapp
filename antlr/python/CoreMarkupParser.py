@@ -24,12 +24,12 @@ def serializedATN():
         buf.write("\2\3\27\3\3\2\2\2\30\32\7\t\2\2\31\30\3\2\2\2\32\33\3")
         buf.write("\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34\5\3\2\2\2\35\36")
         buf.write("\7\3\2\2\36\37\5\4\3\2\37\7\3\2\2\2 !\7\5\2\2!$\5\4\3")
-        buf.write("\2\"%\5\n\6\2#%\5\f\7\2$\"\3\2\2\2$#\3\2\2\2%&\3\2\2\2")
-        buf.write("&$\3\2\2\2&\'\3\2\2\2\'\t\3\2\2\2(*\7\4\2\2)+\5\4\3\2")
-        buf.write("*)\3\2\2\2*+\3\2\2\2+/\3\2\2\2,.\5\16\b\2-,\3\2\2\2.\61")
-        buf.write("\3\2\2\2/-\3\2\2\2/\60\3\2\2\2\60\13\3\2\2\2\61/\3\2\2")
-        buf.write("\2\62\63\7\7\2\2\63\64\5\4\3\2\64\r\3\2\2\2\65\66\7\6")
-        buf.write("\2\2\66\67\5\4\3\2\67\17\3\2\2\2\t\22\24\33$&*/")
+        buf.write("\2\"%\5\n\6\2#%\5\16\b\2$\"\3\2\2\2$#\3\2\2\2%&\3\2\2")
+        buf.write("\2&$\3\2\2\2&\'\3\2\2\2\'\t\3\2\2\2(*\7\4\2\2)+\5\4\3")
+        buf.write("\2*)\3\2\2\2*+\3\2\2\2+/\3\2\2\2,.\5\f\7\2-,\3\2\2\2.")
+        buf.write("\61\3\2\2\2/-\3\2\2\2/\60\3\2\2\2\60\13\3\2\2\2\61/\3")
+        buf.write("\2\2\2\62\63\7\7\2\2\63\64\5\4\3\2\64\r\3\2\2\2\65\66")
+        buf.write("\7\6\2\2\66\67\5\4\3\2\67\17\3\2\2\2\t\22\24\33$&*/")
         return buf.getvalue()
 
 
@@ -45,27 +45,27 @@ class CoreMarkupParser ( Parser ):
 
     literalNames = [  ]
 
-    symbolicNames = [ "<INVALID>", "HEADER_TAG", "NESTED_QUESTION_TAG", 
-                      "QUESTION_TAG", "NESTED_DETAIL_TAG", "DETAIL_TAG", 
+    symbolicNames = [ "<INVALID>", "HEADER_TAG", "QUESTION_DETAIL_TAG", 
+                      "QUESTION_TAG", "DETAIL_TAG", "NESTED_DETAIL_TAG", 
                       "NEWLINE", "TEXT" ]
 
     RULE_cmu = 0
     RULE_label = 1
     RULE_header = 2
     RULE_question = 3
-    RULE_nested_question = 4
-    RULE_detail = 5
-    RULE_nested_detail = 6
+    RULE_question_detail = 4
+    RULE_nested_detail = 5
+    RULE_detail = 6
 
-    ruleNames =  [ "cmu", "label", "header", "question", "nested_question", 
-                   "detail", "nested_detail" ]
+    ruleNames =  [ "cmu", "label", "header", "question", "question_detail", 
+                   "nested_detail", "detail" ]
 
     EOF = Token.EOF
     HEADER_TAG=1
-    NESTED_QUESTION_TAG=2
+    QUESTION_DETAIL_TAG=2
     QUESTION_TAG=3
-    NESTED_DETAIL_TAG=4
-    DETAIL_TAG=5
+    DETAIL_TAG=4
+    NESTED_DETAIL_TAG=5
     NEWLINE=6
     TEXT=7
 
@@ -274,11 +274,11 @@ class CoreMarkupParser ( Parser ):
             return self.getTypedRuleContext(CoreMarkupParser.LabelContext,0)
 
 
-        def nested_question(self, i:int=None):
+        def question_detail(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CoreMarkupParser.Nested_questionContext)
+                return self.getTypedRuleContexts(CoreMarkupParser.Question_detailContext)
             else:
-                return self.getTypedRuleContext(CoreMarkupParser.Nested_questionContext,i)
+                return self.getTypedRuleContext(CoreMarkupParser.Question_detailContext,i)
 
 
         def detail(self, i:int=None):
@@ -320,9 +320,9 @@ class CoreMarkupParser ( Parser ):
                 self.state = 34
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
-                if token in [CoreMarkupParser.NESTED_QUESTION_TAG]:
+                if token in [CoreMarkupParser.QUESTION_DETAIL_TAG]:
                     self.state = 32
-                    self.nested_question()
+                    self.question_detail()
                     pass
                 elif token in [CoreMarkupParser.DETAIL_TAG]:
                     self.state = 33
@@ -334,7 +334,7 @@ class CoreMarkupParser ( Parser ):
                 self.state = 36 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==CoreMarkupParser.NESTED_QUESTION_TAG or _la==CoreMarkupParser.DETAIL_TAG):
+                if not (_la==CoreMarkupParser.QUESTION_DETAIL_TAG or _la==CoreMarkupParser.DETAIL_TAG):
                     break
 
         except RecognitionException as re:
@@ -346,15 +346,15 @@ class CoreMarkupParser ( Parser ):
         return localctx
 
 
-    class Nested_questionContext(ParserRuleContext):
+    class Question_detailContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def NESTED_QUESTION_TAG(self):
-            return self.getToken(CoreMarkupParser.NESTED_QUESTION_TAG, 0)
+        def QUESTION_DETAIL_TAG(self):
+            return self.getToken(CoreMarkupParser.QUESTION_DETAIL_TAG, 0)
 
         def label(self):
             return self.getTypedRuleContext(CoreMarkupParser.LabelContext,0)
@@ -368,28 +368,28 @@ class CoreMarkupParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return CoreMarkupParser.RULE_nested_question
+            return CoreMarkupParser.RULE_question_detail
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterNested_question" ):
-                listener.enterNested_question(self)
+            if hasattr( listener, "enterQuestion_detail" ):
+                listener.enterQuestion_detail(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitNested_question" ):
-                listener.exitNested_question(self)
+            if hasattr( listener, "exitQuestion_detail" ):
+                listener.exitQuestion_detail(self)
 
 
 
 
-    def nested_question(self):
+    def question_detail(self):
 
-        localctx = CoreMarkupParser.Nested_questionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_nested_question)
+        localctx = CoreMarkupParser.Question_detailContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_question_detail)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 38
-            self.match(CoreMarkupParser.NESTED_QUESTION_TAG)
+            self.match(CoreMarkupParser.QUESTION_DETAIL_TAG)
             self.state = 40
             self._errHandler.sync(self)
             _la = self._input.LA(1)
@@ -408,53 +408,6 @@ class CoreMarkupParser ( Parser ):
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class DetailContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def DETAIL_TAG(self):
-            return self.getToken(CoreMarkupParser.DETAIL_TAG, 0)
-
-        def label(self):
-            return self.getTypedRuleContext(CoreMarkupParser.LabelContext,0)
-
-
-        def getRuleIndex(self):
-            return CoreMarkupParser.RULE_detail
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterDetail" ):
-                listener.enterDetail(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitDetail" ):
-                listener.exitDetail(self)
-
-
-
-
-    def detail(self):
-
-        localctx = CoreMarkupParser.DetailContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_detail)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 48
-            self.match(CoreMarkupParser.DETAIL_TAG)
-            self.state = 49
-            self.label()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -495,11 +448,58 @@ class CoreMarkupParser ( Parser ):
     def nested_detail(self):
 
         localctx = CoreMarkupParser.Nested_detailContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_nested_detail)
+        self.enterRule(localctx, 10, self.RULE_nested_detail)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 48
+            self.match(CoreMarkupParser.NESTED_DETAIL_TAG)
+            self.state = 49
+            self.label()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class DetailContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def DETAIL_TAG(self):
+            return self.getToken(CoreMarkupParser.DETAIL_TAG, 0)
+
+        def label(self):
+            return self.getTypedRuleContext(CoreMarkupParser.LabelContext,0)
+
+
+        def getRuleIndex(self):
+            return CoreMarkupParser.RULE_detail
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDetail" ):
+                listener.enterDetail(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDetail" ):
+                listener.exitDetail(self)
+
+
+
+
+    def detail(self):
+
+        localctx = CoreMarkupParser.DetailContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 12, self.RULE_detail)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 51
-            self.match(CoreMarkupParser.NESTED_DETAIL_TAG)
+            self.match(CoreMarkupParser.DETAIL_TAG)
             self.state = 52
             self.label()
         except RecognitionException as re:
