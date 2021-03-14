@@ -83,8 +83,10 @@ class CoreMarkupParser ( Parser ):
     level = STARTING_LEVEL
 
     def get_length(self, token):
-        length = len(token._text) if token._text is not None else CoreMarkupParser.STARTING_LEVEL
-        return length
+        if token.text is not None:
+            return len(token.text)
+        else:
+            return CoreMarkupParser.STARTING_LEVEL
 
     def reset(self):
         CoreMarkupParser.level = CoreMarkupParser.STARTING_LEVEL
