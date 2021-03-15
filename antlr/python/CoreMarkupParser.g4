@@ -8,6 +8,7 @@ options {
 
 STARTING_LEVEL = 1
 level = STARTING_LEVEL
+header_level = STARTING_LEVEL
 
 def get_length(self, token):
     if token.text is not None:
@@ -21,6 +22,10 @@ def reset(self):
 def bounds(self, token, offset):
     length = self.get_length(token) + offset
     return length >= CoreMarkupParser.STARTING_LEVEL and length <= CoreMarkupParser.level
+
+def header_bounds(self, token):
+    length = self.get_length(token)
+    return length >= CoreMarkupParser.STARTING_LEVEL and length <= CoreMarkupParser.header_level
 }
 
 /*
@@ -28,7 +33,7 @@ def bounds(self, token, offset):
  */
 cmu                         : (header | question)+ EOF;
 label                       : TEXT+;
-header                      : HEADER_TAG label;
+header                      : h=HEADER_TAG {self.header_bounds($h)}? {CoreMarkupParser.header_level += 1} label;
 
 question                    : {self.reset()} t=QUESTION_TAG label (question_detail | detail)+;
 question_detail             : qd=QUESTION_DETAIL_TAG {self.bounds($qd, -1)}? label {CoreMarkupParser.level = self.get_length($qd)} (question_detail | nested_detail)+;

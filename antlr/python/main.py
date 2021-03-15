@@ -28,6 +28,9 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
             last_header_level = self.headers[-1]["level"]  # stack peek
             if curr_header_level == last_header_level:
                 self.headers.pop()
+            elif curr_header_level < last_header_level:
+                # slice from 0 to curr_header_level - 1
+                self.headers = self.headers[:curr_header_level - 1]
 
         self.headers.append({"level": curr_header_level, "label": label})
 
