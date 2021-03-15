@@ -1,7 +1,11 @@
 export class Card{
-  front: string;
-  back: string;
+  concept: string;
+  details: {
+    order: number,
+    label?: string,
+    next?: Card
+  }[];
   enumerable: boolean;
-  headers: string;
+  headers: string[];
+  root: boolean;
 }
-
