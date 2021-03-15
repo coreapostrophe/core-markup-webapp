@@ -2,38 +2,12 @@
 
 ## Basic Ways of Representing Information
 
-*Analog and Digital
-- distinguished by the nature of the values that they allow information variables to asssume
-
-*Analog Quantities
-- Information that can vary over a continuous range of values.
-
-*Digital Quantities
-- Information that is represented by a fixed number of discrete symbols called digits.
-
-$Advantages of Digital Techniques
-- Digital system design is easier
-- Information storage is easy
-- Greater precision and accuracy
-- Programmability
-- Less susceptible to noise
-- Digital circuitry can be fabricated on IC chips
-
-$ Base-r to Decimal
--$ 1. Multiply each coefficient with the corresponding power of r
--- 1.1. For the integer part, power of r goes from 0 to n-1 where n is the number of digits in the integer part
--- 1.2. For the fractional part, power of r goes from -1 to -m where m is the number of digits in the fractional part
-- 2. Get the sum
-
-$ Nest break test
--$ 1. Multiply each coefficient with the corresponding power of r
--- 1.1. For the integer part, power of r goes from 0 to n-1 where n is the number of digits in the integer part
--- 1.2. For the fractional part, power of r goes from -1 to -m where m is the number of digits in the fractional part
-
---$ 2. More nesting
---- 1.1. For the integer part, power of r goes from 0 to n-1 where n is the number of digits in the integer part
-
---$ 2. More nesting
---- 1.1. For the integer part, power of r goes from 0 to n-1 where n is the number of digits in the integer part
-
-- 2. Get the sum
+* A
+-$ B
+-- ba
+-- bb
+--$ BB
+--- bba
+---$ C
+---- ca
+- yes
