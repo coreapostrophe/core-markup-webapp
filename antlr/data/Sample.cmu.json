@@ -1,0 +1,712 @@
+[{
+        "concept": "Analog and Digital",
+        "details": [{
+            "label": "distinguished by the nature of the values that they allow information variables to asssume",
+            "order": 6
+        }],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Basic Ways of Representing Information"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Analog Quantities",
+        "details": [{
+            "label": "Information that can vary over a continuous range of values.",
+            "order": 9
+        }],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Basic Ways of Representing Information"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Digital Quantities",
+        "details": [{
+            "label": "Information that is represented by a fixed number of discrete symbols called digits.",
+            "order": 12
+        }],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Basic Ways of Representing Information"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Advantages of Digital Techniques",
+        "details": [{
+                "label": "Digital system design is easier",
+                "order": 15
+            },
+            {
+                "label": "Information storage is easy",
+                "order": 16
+            },
+            {
+                "label": "Greater precision and accuracy",
+                "order": 17
+            },
+            {
+                "label": "Programmability",
+                "order": 18
+            },
+            {
+                "label": "Less susceptible to noise",
+                "order": 19
+            },
+            {
+                "label": "Digital circuitry can be fabricated on IC chips",
+                "order": 20
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Basic Ways of Representing Information"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Limitation of Digital Techniques",
+        "details": [{
+            "label": "The real world is mainly analog",
+            "order": 23
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Basic Ways of Representing Information"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Base-r to Decimal",
+        "details": [{
+                "label": "2. Get the sum",
+                "order": 33
+            },
+            {
+                "next": 6,
+                "order": 30
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "1. Multiply each coefficient with the corresponding power of r",
+        "details": [{
+                "label": "1.1. For the integer part, power of r goes from 0 to n-1 where n is the number of digits in the integer part",
+                "order": 31
+            },
+            {
+                "label": "1.2. For the fractional part, power of r goes from -1 to -m where m is the number of digits in the fractional part",
+                "order": 32
+            }
+        ],
+        "enumerable": true,
+        "parent": 5,
+        "root": false
+    },
+    {
+        "concept": "Decimal to Base-r",
+        "details": [{
+                "label": "1. Split the number into its integer part and its fractional part.",
+                "order": 36
+            },
+            {
+                "next": 8,
+                "order": 37
+            },
+            {
+                "next": 9,
+                "order": 40
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "2. Convert integer part to base-r",
+        "details": [{
+                "label": "2.1. Divide the integer by r. Accumulate the remainders",
+                "order": 38
+            },
+            {
+                "label": "2.2. Repeat step 2.1 until quotient is already equal to zero",
+                "order": 39
+            }
+        ],
+        "enumerable": true,
+        "parent": 7,
+        "root": false
+    },
+    {
+        "concept": "3. Convert fractional part to base-r",
+        "details": [{
+                "label": "3.1. Multiply the fraction by r. Accumulate the integers of the product.",
+                "order": 41
+            },
+            {
+                "label": "3.2. Repeat step 3.1 until the fractional part of the product is already equal to zero or sufficient accuracy is achieved.",
+                "order": 42
+            }
+        ],
+        "enumerable": true,
+        "parent": 7,
+        "root": false
+    },
+    {
+        "concept": "Binary to Octal",
+        "details": [{
+                "label": "1. Partition the binary number into groups of 3 digits",
+                "order": 45
+            },
+            {
+                "label": "2. Convert each group to its equivalent decimal value",
+                "order": 46
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Binary to Hexadecimal",
+        "details": [{
+                "label": "1. Partition the binary number into groups of 4 digits",
+                "order": 49
+            },
+            {
+                "label": "2. Convert each group to its equivalent decimal value",
+                "order": 50
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Octal to Binary",
+        "details": [{
+            "label": "1. Convert each octal digit to its 3-digit binary equivalent",
+            "order": 53
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Hexadecimal to Binary",
+        "details": [{
+            "label": "1. Convert each Hexadecimal digit to its 4-digit binary equivalent",
+            "order": 56
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Number Systems and Base Conversion"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Signed-Magnitude Representation",
+        "details": [{
+            "label": "A number consists of a magnitude and a symbol indicating whether the magnitude is Positive or Negative.",
+            "order": 62
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Negative Number Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Signed-Complement Representation",
+        "details": [{
+                "label": "This system negates a number by taking its complement as defined by the system.",
+                "order": 65
+            },
+            {
+                "next": 16,
+                "order": 66
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Negative Number Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Types of Complements",
+        "details": [{
+                "next": 17,
+                "order": 67
+            },
+            {
+                "next": 18,
+                "order": 69
+            }
+        ],
+        "enumerable": true,
+        "parent": 15,
+        "root": false
+    },
+    {
+        "concept": "Radix-complement",
+        "details": [{
+            "label": "General Formula r's C of N = r^n - N",
+            "order": 68
+        }],
+        "enumerable": true,
+        "parent": 15,
+        "root": false
+    },
+    {
+        "concept": "Diminished Radix-Complement",
+        "details": [{
+            "label": "General Formula (r-1)'s C of N = (r^n-r^-m) - N",
+            "order": 70
+        }],
+        "enumerable": true,
+        "parent": 15,
+        "root": false
+    },
+    {
+        "concept": "Code",
+        "details": [{
+            "label": "A set of n-bit strings in which differnet bit strings represent different numbers or other things",
+            "order": 75
+        }],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Binary Codes are used for",
+        "details": [{
+                "label": "Decimal numbers",
+                "order": 78
+            },
+            {
+                "label": "Character codes",
+                "order": 79
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Some Binary Codes",
+        "details": [{
+                "label": "BCD (Binary-coded decimal)",
+                "order": 82
+            },
+            {
+                "label": "Excess-3",
+                "order": 83
+            },
+            {
+                "label": "Biquinary",
+                "order": 84
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes"
+        ],
+        "root": true
+    },
+    {
+        "concept": "BCD (Binary-coded decimal)",
+        "details": [{
+                "label": "Straight assignment of the binary equivalent",
+                "order": 89
+            },
+            {
+                "label": "Weights can be assigned to",
+                "order": 90
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Excess-3 Code",
+        "details": [{
+            "label": "Unweighted code (BCD + 3)",
+            "order": 93
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Biquinary Code",
+        "details": [{
+                "label": "Seven-bit code with error detection properties",
+                "order": 96
+            },
+            {
+                "label": "Each decimal digit consists of 5 0's and 2 1'significant",
+                "order": 97
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Differences between Binary and BCD",
+        "details": [{
+                "label": "BCD is not a number system",
+                "order": 100
+            },
+            {
+                "label": "BCD requires more bits than Binary",
+                "order": 101
+            },
+            {
+                "label": "BCD is less efficient than Binary",
+                "order": 102
+            },
+            {
+                "label": "BCD is easier to use than Binary",
+                "order": 103
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Coding vs Conversion",
+        "details": [{
+                "next": 27,
+                "order": 106
+            },
+            {
+                "next": 28,
+                "order": 108
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Conversion",
+        "details": [{
+            "label": "bits obtained are binary digits",
+            "order": 107
+        }],
+        "enumerable": false,
+        "parent": 26,
+        "root": false
+    },
+    {
+        "concept": "Coding",
+        "details": [{
+            "label": "bits obtained are combinations of 0's and 1's",
+            "order": 109
+        }],
+        "enumerable": false,
+        "parent": 26,
+        "root": false
+    },
+    {
+        "concept": "Examples of Binary Coding Systems",
+        "details": [{
+                "label": "Gray Code",
+                "order": 114
+            },
+            {
+                "label": "Character Code",
+                "order": 115
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers",
+            "Coding Systems"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Gray Code",
+        "details": [{
+            "label": "A coding system where two successive values differ in only one digit to prevent spurious output from electromechanical switches",
+            "order": 118
+        }],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers",
+            "Coding Systems"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Character Code",
+        "details": [{
+                "next": 32,
+                "order": 121
+            },
+            {
+                "next": 33,
+                "order": 124
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Binary and Alphanumeric Codes",
+            "Binary Codes for Decimal numbers",
+            "Coding Systems"
+        ],
+        "root": true
+    },
+    {
+        "concept": "American Standard Code for Information Interchange (ASCII)",
+        "details": [{
+                "label": "7-bit code",
+                "order": 122
+            },
+            {
+                "label": "contains 94 graphic characters and 34 non-printing characters",
+                "order": 123
+            }
+        ],
+        "enumerable": true,
+        "parent": 31,
+        "root": false
+    },
+    {
+        "concept": "Extended Binary Coded Decimal Interchange Code",
+        "details": [{
+                "label": "8-bit code",
+                "order": 125
+            },
+            {
+                "label": "used mainly by IBM machines",
+                "order": 126
+            }
+        ],
+        "enumerable": true,
+        "parent": 31,
+        "root": false
+    },
+    {
+        "concept": "Things to be noted",
+        "details": [{
+                "label": "No representation method is capable of representing all real numbers",
+                "order": 131
+            },
+            {
+                "label": "Most real values must be represented by an approximation",
+                "order": 132
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Various Number Systems",
+        "details": [{
+                "label": "Fixed-point number system",
+                "order": 135
+            },
+            {
+                "label": "Rational number system",
+                "order": 136
+            },
+            {
+                "label": "Floating point number system",
+                "order": 137
+            },
+            {
+                "label": "Logarithmic number system",
+                "order": 138
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Fixed-point Representation",
+        "details": [{
+            "label": "It is a method used to represent numbers with fixed number of digits",
+            "order": 141
+        }],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Fixed Point Representation",
+        "details": [{
+                "next": 38,
+                "order": 144
+            },
+            {
+                "next": 39,
+                "order": 146
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Unsigned Number",
+        "details": [{
+            "label": "leftmost bit is the most significant bit",
+            "order": 145
+        }],
+        "enumerable": false,
+        "parent": 37,
+        "root": false
+    },
+    {
+        "concept": "Signed Number",
+        "details": [{
+            "label": "leftmost bit represents the sign",
+            "order": 147
+        }],
+        "enumerable": false,
+        "parent": 37,
+        "root": false
+    },
+    {
+        "concept": "Disadvantages of Fixed-point Representation",
+        "details": [{
+                "label": "very small real numbers are not clearly distinguished",
+                "order": 150
+            },
+            {
+                "label": "very large real numbers are not known accurately enough",
+                "order": 151
+            }
+        ],
+        "enumerable": true,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    },
+    {
+        "concept": "Floating-point Representation",
+        "details": [{
+                "label": "It is a method used to represent real numbers",
+                "order": 154
+            },
+            {
+                "label": "Notation mantissa x base ^ exponent",
+                "order": 155
+            }
+        ],
+        "enumerable": false,
+        "headers": [
+            "Basic Ways of Representing Information",
+            "Data Representation",
+            "Fixed and Floating Point Representations"
+        ],
+        "root": true
+    }
+]

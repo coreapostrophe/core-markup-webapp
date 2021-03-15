@@ -17,7 +17,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
     def __init__(self):
         self.headers = []
         self.current_root_index = -1
-        self.indices = {} # Indices lookup table
+        self.indices = {}  # Indices lookup table
         self.questions = []
 
     # Enter a parse tree produced by CoreMarkupParser#header.
@@ -32,7 +32,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
                 self.headers.pop()
             elif curr_header_level < last_header_level:
                 # slice from 0 to curr_header_level - 1
-                self.headers = self.headers[:curr_header_level - 1]
+                self.headers = self.headers[: curr_header_level - 1]
 
         self.headers.append({"level": curr_header_level, "label": label})
 
@@ -41,7 +41,10 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         label = ctx.label().getText().strip()
         enumerable = self.is_enumerable(ctx.QUESTION_TAG().getText())
 
-        details = [{"label": d.label().getText().strip(), "order": d.start.line} for d in ctx.detail()]
+        details = [
+            {"label": d.label().getText().strip(), "order": d.start.line}
+            for d in ctx.detail()
+        ]
         headers = [h["label"] for h in self.headers]
 
         question = {
@@ -49,7 +52,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
             "headers": headers,
             "concept": label,
             "enumerable": enumerable,
-            "details": details
+            "details": details,
         }
 
         # Append to questions array and become the current root
@@ -62,41 +65,59 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         self.indices = {}
 
     # Enter a parse tree produced by CoreMarkupParser#question_detail.
-    def enterQuestion_detail(self, ctx:CoreMarkupParser.Question_detailContext):
-        line_number = ctx.start.line
-        label = ctx.label().getText().strip()
+    def enterQuestion_detail(self, ctx: CoreMarkupParser.Question_detailContext):
         qd_tag_text = ctx.QUESTION_DETAIL_TAG().getText()
-        level = len(qd_tag_text)
+        question_level = len(qd_tag_text)
 
         enumerable = self.is_enumerable(qd_tag_text[-1])
-        nested_details = [{"label": d.label().getText().strip(), "order": d.start.line} for d in ctx.nested_detail()]
+        nested_details = []
+        for nd in ctx.nested_detail():
+            # Determine detail level
+            nd_tag_text = nd.NESTED_DETAIL_TAG().getText()
+            detail_level = len(nd_tag_text)
+
+            # Construct detail object
+            detail_obj = {"label": nd.label().getText().strip(), "order": nd.start.line}
+
+            if detail_level == question_level:
+                # Append as usual
+                nested_details.append(detail_obj)
+            else:
+                # Use lookup table to find correct parent
+                parent = self.get_question_at(detail_level)
+                parent["details"].append(detail_obj)
 
         # Construct question detail
+        order = ctx.start.line
+        label = ctx.label().getText().strip()
         question_detail = {
             "root": False,
             "concept": label,
             "enumerable": enumerable,
             "details": nested_details,
-            "parent": self.indices[1]
+            "parent": self.indices[1],  # Get level 1 (the root question)
         }
 
         # Append child QD to the array and update indices lookup table
         self.questions.append(question_detail)
         current_index = len(self.questions) - 1
-        self.indices[level] = current_index
+        self.indices[question_level] = current_index
 
-        prev = self.get_prev_question(level)
-        prev["details"].append({"next": current_index, "order": line_number})
+        # Get previous question
+        prev = self.get_question_at(question_level - 1)
+        question_obj = {"next": current_index, "order": order}
+        prev["details"].append(question_obj)
 
-    def get_prev_question(self, current_level):
-        index = self.indices[current_level - 1]
+    def get_question_at(self, level):
+        index = self.indices[level]
         return self.questions[index]
-    
+
     def get_current_root_question(self):
         return self.questions[self.current_root_index]
 
     def is_enumerable(self, tag):
         return tag == CoreMarkupConsumer.SYMBOL_ENUM_QUESTION
+
 
 def main(argv):
     # Provide Sample.cmu file
