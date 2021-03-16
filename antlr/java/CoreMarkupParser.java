@@ -86,6 +86,29 @@ public class CoreMarkupParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
+
+	    final int STARTING_LEVEL = 1;
+	    int level = STARTING_LEVEL;
+	    int headerLevel = STARTING_LEVEL;
+
+	    public int len(Token token) {
+	        return token != null ? token.getText().length() : this.STARTING_LEVEL;
+	    }
+
+	    public void reset() {
+	        this.level = this.STARTING_LEVEL;
+	    }
+
+	    public boolean bounds(Token token, int offset) {
+	        int length = len(token) + offset;
+	        return length >= this.STARTING_LEVEL && length <= this.level;
+	    }
+
+	    public boolean headerBounds(Token token) {
+	        int length = len(token);
+	        return length >= this.STARTING_LEVEL && length <= this.headerLevel;
+	    }
+
 	public CoreMarkupParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
@@ -223,10 +246,11 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static class HeaderContext extends ParserRuleContext {
-		public TerminalNode HEADER_TAG() { return getToken(CoreMarkupParser.HEADER_TAG, 0); }
+		public Token h;
 		public LabelContext label() {
 			return getRuleContext(LabelContext.class,0);
 		}
+		public TerminalNode HEADER_TAG() { return getToken(CoreMarkupParser.HEADER_TAG, 0); }
 		public HeaderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -248,8 +272,11 @@ public class CoreMarkupParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(27);
-			match(HEADER_TAG);
+			((HeaderContext)_localctx).h = match(HEADER_TAG);
 			setState(28);
+			if (!(headerBounds(((HeaderContext)_localctx).h))) throw new FailedPredicateException(this, "headerBounds($h)");
+			headerLevel++;
+			setState(30);
 			label();
 			}
 		}
@@ -265,10 +292,11 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static class QuestionContext extends ParserRuleContext {
-		public TerminalNode QUESTION_TAG() { return getToken(CoreMarkupParser.QUESTION_TAG, 0); }
+		public Token t;
 		public LabelContext label() {
 			return getRuleContext(LabelContext.class,0);
 		}
+		public TerminalNode QUESTION_TAG() { return getToken(CoreMarkupParser.QUESTION_TAG, 0); }
 		public List<Question_detailContext> question_detail() {
 			return getRuleContexts(Question_detailContext.class);
 		}
@@ -302,27 +330,28 @@ public class CoreMarkupParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(30);
-			match(QUESTION_TAG);
-			setState(31);
+			reset();
+			setState(33);
+			((QuestionContext)_localctx).t = match(QUESTION_TAG);
+			setState(34);
 			label();
-			setState(34); 
+			setState(37); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(34);
+				setState(37);
 				_errHandler.sync(this);
 				switch (_input.LA(1)) {
 				case QUESTION_DETAIL_TAG:
 					{
-					setState(32);
+					setState(35);
 					question_detail();
 					}
 					break;
 				case DETAIL_TAG:
 					{
-					setState(33);
+					setState(36);
 					detail();
 					}
 					break;
@@ -330,7 +359,7 @@ public class CoreMarkupParser extends Parser {
 					throw new NoViableAltException(this);
 				}
 				}
-				setState(36); 
+				setState(39); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==QUESTION_DETAIL_TAG || _la==DETAIL_TAG );
@@ -348,9 +377,16 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static class Question_detailContext extends ParserRuleContext {
-		public TerminalNode QUESTION_DETAIL_TAG() { return getToken(CoreMarkupParser.QUESTION_DETAIL_TAG, 0); }
+		public Token qd;
 		public LabelContext label() {
 			return getRuleContext(LabelContext.class,0);
+		}
+		public TerminalNode QUESTION_DETAIL_TAG() { return getToken(CoreMarkupParser.QUESTION_DETAIL_TAG, 0); }
+		public List<Question_detailContext> question_detail() {
+			return getRuleContexts(Question_detailContext.class);
+		}
+		public Question_detailContext question_detail(int i) {
+			return getRuleContext(Question_detailContext.class,i);
 		}
 		public List<Nested_detailContext> nested_detail() {
 			return getRuleContexts(Nested_detailContext.class);
@@ -375,36 +411,51 @@ public class CoreMarkupParser extends Parser {
 	public final Question_detailContext question_detail() throws RecognitionException {
 		Question_detailContext _localctx = new Question_detailContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_question_detail);
-		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(38);
-			match(QUESTION_DETAIL_TAG);
-			setState(40);
+			setState(41);
+			((Question_detailContext)_localctx).qd = match(QUESTION_DETAIL_TAG);
+			setState(42);
+			if (!(bounds(((Question_detailContext)_localctx).qd, -1))) throw new FailedPredicateException(this, "bounds($qd, -1)");
+			setState(43);
+			label();
+			level = len(((Question_detailContext)_localctx).qd);
+			setState(47); 
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==TEXT) {
-				{
-				setState(39);
-				label();
+			_alt = 1;
+			do {
+				switch (_alt) {
+				case 1:
+					{
+					setState(47);
+					_errHandler.sync(this);
+					switch (_input.LA(1)) {
+					case QUESTION_DETAIL_TAG:
+						{
+						setState(45);
+						question_detail();
+						}
+						break;
+					case NESTED_DETAIL_TAG:
+						{
+						setState(46);
+						nested_detail();
+						}
+						break;
+					default:
+						throw new NoViableAltException(this);
+					}
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
 				}
-			}
-
-			setState(45);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==NESTED_DETAIL_TAG) {
-				{
-				{
-				setState(42);
-				nested_detail();
-				}
-				}
-				setState(47);
+				setState(49); 
 				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
+				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
+			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
 			}
 		}
 		catch (RecognitionException re) {
@@ -419,10 +470,11 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static class Nested_detailContext extends ParserRuleContext {
-		public TerminalNode NESTED_DETAIL_TAG() { return getToken(CoreMarkupParser.NESTED_DETAIL_TAG, 0); }
+		public Token nd;
 		public LabelContext label() {
 			return getRuleContext(LabelContext.class,0);
 		}
+		public TerminalNode NESTED_DETAIL_TAG() { return getToken(CoreMarkupParser.NESTED_DETAIL_TAG, 0); }
 		public Nested_detailContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -443,9 +495,11 @@ public class CoreMarkupParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(48);
-			match(NESTED_DETAIL_TAG);
-			setState(49);
+			setState(51);
+			((Nested_detailContext)_localctx).nd = match(NESTED_DETAIL_TAG);
+			setState(52);
+			if (!(bounds(((Nested_detailContext)_localctx).nd, 0))) throw new FailedPredicateException(this, "bounds($nd, 0)");
+			setState(53);
 			label();
 			}
 		}
@@ -461,10 +515,11 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static class DetailContext extends ParserRuleContext {
-		public TerminalNode DETAIL_TAG() { return getToken(CoreMarkupParser.DETAIL_TAG, 0); }
+		public Token d;
 		public LabelContext label() {
 			return getRuleContext(LabelContext.class,0);
 		}
+		public TerminalNode DETAIL_TAG() { return getToken(CoreMarkupParser.DETAIL_TAG, 0); }
 		public DetailContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -485,9 +540,11 @@ public class CoreMarkupParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(51);
-			match(DETAIL_TAG);
-			setState(52);
+			setState(55);
+			((DetailContext)_localctx).d = match(DETAIL_TAG);
+			setState(56);
+			if (!(bounds(((DetailContext)_localctx).d, 0))) throw new FailedPredicateException(this, "bounds($d, 0)");
+			setState(57);
 			label();
 			}
 		}
@@ -502,22 +559,65 @@ public class CoreMarkupParser extends Parser {
 		return _localctx;
 	}
 
+	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+		switch (ruleIndex) {
+		case 2:
+			return header_sempred((HeaderContext)_localctx, predIndex);
+		case 4:
+			return question_detail_sempred((Question_detailContext)_localctx, predIndex);
+		case 5:
+			return nested_detail_sempred((Nested_detailContext)_localctx, predIndex);
+		case 6:
+			return detail_sempred((DetailContext)_localctx, predIndex);
+		}
+		return true;
+	}
+	private boolean header_sempred(HeaderContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 0:
+			return headerBounds(((HeaderContext)_localctx).h);
+		}
+		return true;
+	}
+	private boolean question_detail_sempred(Question_detailContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 1:
+			return bounds(((Question_detailContext)_localctx).qd, -1);
+		}
+		return true;
+	}
+	private boolean nested_detail_sempred(Nested_detailContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 2:
+			return bounds(((Nested_detailContext)_localctx).nd, 0);
+		}
+		return true;
+	}
+	private boolean detail_sempred(DetailContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 3:
+			return bounds(((DetailContext)_localctx).d, 0);
+		}
+		return true;
+	}
+
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t9\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t>\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\6\2\23\n\2\r\2\16\2"+
-		"\24\3\2\3\2\3\3\6\3\32\n\3\r\3\16\3\33\3\4\3\4\3\4\3\5\3\5\3\5\3\5\6\5"+
-		"%\n\5\r\5\16\5&\3\6\3\6\5\6+\n\6\3\6\7\6.\n\6\f\6\16\6\61\13\6\3\7\3\7"+
-		"\3\7\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2\28\2\22\3\2\2\2\4\31\3\2"+
-		"\2\2\6\35\3\2\2\2\b \3\2\2\2\n(\3\2\2\2\f\62\3\2\2\2\16\65\3\2\2\2\20"+
-		"\23\5\6\4\2\21\23\5\b\5\2\22\20\3\2\2\2\22\21\3\2\2\2\23\24\3\2\2\2\24"+
-		"\22\3\2\2\2\24\25\3\2\2\2\25\26\3\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2\30"+
-		"\32\7\t\2\2\31\30\3\2\2\2\32\33\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34"+
-		"\5\3\2\2\2\35\36\7\3\2\2\36\37\5\4\3\2\37\7\3\2\2\2 !\7\5\2\2!$\5\4\3"+
-		"\2\"%\5\n\6\2#%\5\16\b\2$\"\3\2\2\2$#\3\2\2\2%&\3\2\2\2&$\3\2\2\2&\'\3"+
-		"\2\2\2\'\t\3\2\2\2(*\7\4\2\2)+\5\4\3\2*)\3\2\2\2*+\3\2\2\2+/\3\2\2\2,"+
-		".\5\f\7\2-,\3\2\2\2.\61\3\2\2\2/-\3\2\2\2/\60\3\2\2\2\60\13\3\2\2\2\61"+
-		"/\3\2\2\2\62\63\7\7\2\2\63\64\5\4\3\2\64\r\3\2\2\2\65\66\7\6\2\2\66\67"+
-		"\5\4\3\2\67\17\3\2\2\2\t\22\24\33$&*/";
+		"\24\3\2\3\2\3\3\6\3\32\n\3\r\3\16\3\33\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5"+
+		"\3\5\3\5\6\5(\n\5\r\5\16\5)\3\6\3\6\3\6\3\6\3\6\3\6\6\6\62\n\6\r\6\16"+
+		"\6\63\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\2\2\t\2\4\6\b\n\f\16\2\2\2="+
+		"\2\22\3\2\2\2\4\31\3\2\2\2\6\35\3\2\2\2\b\"\3\2\2\2\n+\3\2\2\2\f\65\3"+
+		"\2\2\2\169\3\2\2\2\20\23\5\6\4\2\21\23\5\b\5\2\22\20\3\2\2\2\22\21\3\2"+
+		"\2\2\23\24\3\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\26\3\2\2\2\26\27\7\2"+
+		"\2\3\27\3\3\2\2\2\30\32\7\t\2\2\31\30\3\2\2\2\32\33\3\2\2\2\33\31\3\2"+
+		"\2\2\33\34\3\2\2\2\34\5\3\2\2\2\35\36\7\3\2\2\36\37\6\4\2\3\37 \b\4\1"+
+		"\2 !\5\4\3\2!\7\3\2\2\2\"#\b\5\1\2#$\7\5\2\2$\'\5\4\3\2%(\5\n\6\2&(\5"+
+		"\16\b\2\'%\3\2\2\2\'&\3\2\2\2()\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*\t\3\2\2"+
+		"\2+,\7\4\2\2,-\6\6\3\3-.\5\4\3\2.\61\b\6\1\2/\62\5\n\6\2\60\62\5\f\7\2"+
+		"\61/\3\2\2\2\61\60\3\2\2\2\62\63\3\2\2\2\63\61\3\2\2\2\63\64\3\2\2\2\64"+
+		"\13\3\2\2\2\65\66\7\7\2\2\66\67\6\7\4\3\678\5\4\3\28\r\3\2\2\29:\7\6\2"+
+		"\2:;\6\b\5\3;<\5\4\3\2<\17\3\2\2\2\t\22\24\33\')\61\63";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
