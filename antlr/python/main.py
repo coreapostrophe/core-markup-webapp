@@ -41,10 +41,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         label = ctx.label().getText().strip()
         enumerable = self.is_enumerable(ctx.QUESTION_TAG().getText())
 
-        details = [
-            {"label": d.label().getText().strip(), "order": d.start.line}
-            for d in ctx.detail()
-        ]
+        details = [{"label": d.label().getText().strip()} for d in ctx.detail()]
         headers = [h["label"] for h in self.headers]
 
         question = {
@@ -69,44 +66,44 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         qd_tag_text = ctx.QUESTION_DETAIL_TAG().getText()
         question_level = len(qd_tag_text)
 
+        # Get previous question
+        prev = self.get_question_at(question_level - 1)
+        next_index = len(self.questions)
+
+        question_obj = {"next": next_index}
+        prev["details"].append(question_obj)
+
         enumerable = self.is_enumerable(qd_tag_text[-1])
-        nested_details = []
-        for nd in ctx.nested_detail():
+        details = []
+        for d in ctx.detail():
             # Determine detail level
-            nd_tag_text = nd.NESTED_DETAIL_TAG().getText()
-            detail_level = len(nd_tag_text)
+            d_tag_text = d.DETAIL_TAG().getText()
+            detail_level = len(d_tag_text)
 
             # Construct detail object
-            detail_obj = {"label": nd.label().getText().strip(), "order": nd.start.line}
+            detail_obj = {"label": d.label().getText().strip()}
 
             if detail_level == question_level:
                 # Append as usual
-                nested_details.append(detail_obj)
+                details.append(detail_obj)
             else:
                 # Use lookup table to find correct parent
                 parent = self.get_question_at(detail_level)
                 parent["details"].append(detail_obj)
 
         # Construct question detail
-        order = ctx.start.line
         label = ctx.label().getText().strip()
         question_detail = {
             "root": False,
             "concept": label,
             "enumerable": enumerable,
-            "details": nested_details,
+            "details": details,
             "parent": self.indices[1],  # Get level 1 (the root question)
         }
 
         # Append child QD to the array and update indices lookup table
         self.questions.append(question_detail)
-        current_index = len(self.questions) - 1
-        self.indices[question_level] = current_index
-
-        # Get previous question
-        prev = self.get_question_at(question_level - 1)
-        question_obj = {"next": current_index, "order": order}
-        prev["details"].append(question_obj)
+        self.indices[question_level] = next_index
 
     def get_question_at(self, level):
         index = self.indices[level]

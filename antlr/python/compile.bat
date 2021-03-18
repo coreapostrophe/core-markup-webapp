@@ -1,1 +1,1 @@
-antlr4 -Dlanguage=Python3 CoreMarkupLexer.g4 && antlr4 -Dlanguage=Python3 CoreMarkupParser.g4
+antlr4 CoreMarkupLexer.g4 && antlr4 CoreMarkupParser.g4

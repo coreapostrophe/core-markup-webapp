@@ -53,15 +53,6 @@ class CoreMarkupParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CoreMarkupParser#nested_detail.
-    def enterNested_detail(self, ctx:CoreMarkupParser.Nested_detailContext):
-        pass
-
-    # Exit a parse tree produced by CoreMarkupParser#nested_detail.
-    def exitNested_detail(self, ctx:CoreMarkupParser.Nested_detailContext):
-        pass
-
-
     # Enter a parse tree produced by CoreMarkupParser#detail.
     def enterDetail(self, ctx:CoreMarkupParser.DetailContext):
         pass

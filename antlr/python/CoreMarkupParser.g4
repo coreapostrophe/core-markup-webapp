@@ -2,6 +2,7 @@ parser grammar CoreMarkupParser;
 
 options {
     tokenVocab=CoreMarkupLexer;
+    language=Python3;
 }
 
 @members {
@@ -36,6 +37,5 @@ label                       : TEXT+;
 header                      : h=HEADER_TAG {self.header_bounds($h)}? {CoreMarkupParser.header_level += 1} label;
 
 question                    : {self.reset()} t=QUESTION_TAG label (question_detail | detail)+;
-question_detail             : qd=QUESTION_DETAIL_TAG {self.bounds($qd, -1)}? label {CoreMarkupParser.level = self.get_length($qd)} (question_detail | nested_detail)+;
-nested_detail               : nd=NESTED_DETAIL_TAG {self.bounds($nd, 0)}? label;
+question_detail             : qd=QUESTION_DETAIL_TAG {self.bounds($qd, -1)}? label {CoreMarkupParser.level = self.get_length($qd)} (question_detail | detail)+;
 detail                      : d=DETAIL_TAG {self.bounds($d, 0)}? label;

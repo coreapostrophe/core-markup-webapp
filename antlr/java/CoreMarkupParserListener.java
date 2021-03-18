@@ -57,16 +57,6 @@ public interface CoreMarkupParserListener extends ParseTreeListener {
 	 */
 	void exitQuestion_detail(CoreMarkupParser.Question_detailContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link CoreMarkupParser#nested_detail}.
-	 * @param ctx the parse tree
-	 */
-	void enterNested_detail(CoreMarkupParser.Nested_detailContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CoreMarkupParser#nested_detail}.
-	 * @param ctx the parse tree
-	 */
-	void exitNested_detail(CoreMarkupParser.Nested_detailContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link CoreMarkupParser#detail}.
 	 * @param ctx the parse tree
 	 */

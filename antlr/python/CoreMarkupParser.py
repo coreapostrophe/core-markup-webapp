@@ -11,27 +11,25 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\t")
-        buf.write(">\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b")
-        buf.write("\t\b\3\2\3\2\6\2\23\n\2\r\2\16\2\24\3\2\3\2\3\3\6\3\32")
-        buf.write("\n\3\r\3\16\3\33\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3")
-        buf.write("\5\6\5(\n\5\r\5\16\5)\3\6\3\6\3\6\3\6\3\6\3\6\6\6\62\n")
-        buf.write("\6\r\6\16\6\63\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\2\2")
-        buf.write("\t\2\4\6\b\n\f\16\2\2\2=\2\22\3\2\2\2\4\31\3\2\2\2\6\35")
-        buf.write("\3\2\2\2\b\"\3\2\2\2\n+\3\2\2\2\f\65\3\2\2\2\169\3\2\2")
-        buf.write("\2\20\23\5\6\4\2\21\23\5\b\5\2\22\20\3\2\2\2\22\21\3\2")
-        buf.write("\2\2\23\24\3\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\26\3")
-        buf.write("\2\2\2\26\27\7\2\2\3\27\3\3\2\2\2\30\32\7\t\2\2\31\30")
-        buf.write("\3\2\2\2\32\33\3\2\2\2\33\31\3\2\2\2\33\34\3\2\2\2\34")
-        buf.write("\5\3\2\2\2\35\36\7\3\2\2\36\37\6\4\2\3\37 \b\4\1\2 !\5")
-        buf.write("\4\3\2!\7\3\2\2\2\"#\b\5\1\2#$\7\5\2\2$\'\5\4\3\2%(\5")
-        buf.write("\n\6\2&(\5\16\b\2\'%\3\2\2\2\'&\3\2\2\2()\3\2\2\2)\'\3")
-        buf.write("\2\2\2)*\3\2\2\2*\t\3\2\2\2+,\7\4\2\2,-\6\6\3\3-.\5\4")
-        buf.write("\3\2.\61\b\6\1\2/\62\5\n\6\2\60\62\5\f\7\2\61/\3\2\2\2")
-        buf.write("\61\60\3\2\2\2\62\63\3\2\2\2\63\61\3\2\2\2\63\64\3\2\2")
-        buf.write("\2\64\13\3\2\2\2\65\66\7\7\2\2\66\67\6\7\4\3\678\5\4\3")
-        buf.write("\28\r\3\2\2\29:\7\6\2\2:;\6\b\5\3;<\5\4\3\2<\17\3\2\2")
-        buf.write("\2\t\22\24\33\')\61\63")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\b")
+        buf.write("8\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2")
+        buf.write("\3\2\6\2\21\n\2\r\2\16\2\22\3\2\3\2\3\3\6\3\30\n\3\r\3")
+        buf.write("\16\3\31\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\6\5&")
+        buf.write("\n\5\r\5\16\5\'\3\6\3\6\3\6\3\6\3\6\3\6\6\6\60\n\6\r\6")
+        buf.write("\16\6\61\3\7\3\7\3\7\3\7\3\7\2\2\b\2\4\6\b\n\f\2\2\28")
+        buf.write("\2\20\3\2\2\2\4\27\3\2\2\2\6\33\3\2\2\2\b \3\2\2\2\n)")
+        buf.write("\3\2\2\2\f\63\3\2\2\2\16\21\5\6\4\2\17\21\5\b\5\2\20\16")
+        buf.write("\3\2\2\2\20\17\3\2\2\2\21\22\3\2\2\2\22\20\3\2\2\2\22")
+        buf.write("\23\3\2\2\2\23\24\3\2\2\2\24\25\7\2\2\3\25\3\3\2\2\2\26")
+        buf.write("\30\7\b\2\2\27\26\3\2\2\2\30\31\3\2\2\2\31\27\3\2\2\2")
+        buf.write("\31\32\3\2\2\2\32\5\3\2\2\2\33\34\7\3\2\2\34\35\6\4\2")
+        buf.write("\3\35\36\b\4\1\2\36\37\5\4\3\2\37\7\3\2\2\2 !\b\5\1\2")
+        buf.write("!\"\7\5\2\2\"%\5\4\3\2#&\5\n\6\2$&\5\f\7\2%#\3\2\2\2%")
+        buf.write("$\3\2\2\2&\'\3\2\2\2\'%\3\2\2\2\'(\3\2\2\2(\t\3\2\2\2")
+        buf.write(")*\7\4\2\2*+\6\6\3\3+,\5\4\3\2,/\b\6\1\2-\60\5\n\6\2.")
+        buf.write("\60\5\f\7\2/-\3\2\2\2/.\3\2\2\2\60\61\3\2\2\2\61/\3\2")
+        buf.write("\2\2\61\62\3\2\2\2\62\13\3\2\2\2\63\64\7\6\2\2\64\65\6")
+        buf.write("\7\4\3\65\66\5\4\3\2\66\r\3\2\2\2\t\20\22\31%\'/\61")
         return buf.getvalue()
 
 
@@ -48,28 +46,25 @@ class CoreMarkupParser ( Parser ):
     literalNames = [  ]
 
     symbolicNames = [ "<INVALID>", "HEADER_TAG", "QUESTION_DETAIL_TAG", 
-                      "QUESTION_TAG", "DETAIL_TAG", "NESTED_DETAIL_TAG", 
-                      "NEWLINE", "TEXT" ]
+                      "QUESTION_TAG", "DETAIL_TAG", "NEWLINE", "TEXT" ]
 
     RULE_cmu = 0
     RULE_label = 1
     RULE_header = 2
     RULE_question = 3
     RULE_question_detail = 4
-    RULE_nested_detail = 5
-    RULE_detail = 6
+    RULE_detail = 5
 
     ruleNames =  [ "cmu", "label", "header", "question", "question_detail", 
-                   "nested_detail", "detail" ]
+                   "detail" ]
 
     EOF = Token.EOF
     HEADER_TAG=1
     QUESTION_DETAIL_TAG=2
     QUESTION_TAG=3
     DETAIL_TAG=4
-    NESTED_DETAIL_TAG=5
-    NEWLINE=6
-    TEXT=7
+    NEWLINE=5
+    TEXT=6
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -148,31 +143,31 @@ class CoreMarkupParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 16 
+            self.state = 14 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 16
+                self.state = 14
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [CoreMarkupParser.HEADER_TAG]:
-                    self.state = 14
+                    self.state = 12
                     self.header()
                     pass
                 elif token in [CoreMarkupParser.QUESTION_TAG]:
-                    self.state = 15
+                    self.state = 13
                     self.question()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 18 
+                self.state = 16 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==CoreMarkupParser.HEADER_TAG or _la==CoreMarkupParser.QUESTION_TAG):
                     break
 
-            self.state = 20
+            self.state = 18
             self.match(CoreMarkupParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -217,13 +212,13 @@ class CoreMarkupParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 23 
+            self.state = 21 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 22
+                self.state = 20
                 self.match(CoreMarkupParser.TEXT)
-                self.state = 25 
+                self.state = 23 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==CoreMarkupParser.TEXT):
@@ -273,14 +268,14 @@ class CoreMarkupParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_header)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 27
+            self.state = 25
             localctx.h = self.match(CoreMarkupParser.HEADER_TAG)
-            self.state = 28
+            self.state = 26
             if not self.header_bounds(localctx.h):
                 from antlr4.error.Errors import FailedPredicateException
                 raise FailedPredicateException(self, "self.header_bounds($h)")
             CoreMarkupParser.header_level += 1
-            self.state = 30
+            self.state = 28
             self.label()
         except RecognitionException as re:
             localctx.exception = re
@@ -342,29 +337,29 @@ class CoreMarkupParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.reset()
-            self.state = 33
+            self.state = 31
             localctx.t = self.match(CoreMarkupParser.QUESTION_TAG)
-            self.state = 34
+            self.state = 32
             self.label()
-            self.state = 37 
+            self.state = 35 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 37
+                self.state = 35
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [CoreMarkupParser.QUESTION_DETAIL_TAG]:
-                    self.state = 35
+                    self.state = 33
                     self.question_detail()
                     pass
                 elif token in [CoreMarkupParser.DETAIL_TAG]:
-                    self.state = 36
+                    self.state = 34
                     self.detail()
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 39 
+                self.state = 37 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 if not (_la==CoreMarkupParser.QUESTION_DETAIL_TAG or _la==CoreMarkupParser.DETAIL_TAG):
@@ -401,11 +396,11 @@ class CoreMarkupParser ( Parser ):
                 return self.getTypedRuleContext(CoreMarkupParser.Question_detailContext,i)
 
 
-        def nested_detail(self, i:int=None):
+        def detail(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(CoreMarkupParser.Nested_detailContext)
+                return self.getTypedRuleContexts(CoreMarkupParser.DetailContext)
             else:
-                return self.getTypedRuleContext(CoreMarkupParser.Nested_detailContext,i)
+                return self.getTypedRuleContext(CoreMarkupParser.DetailContext,i)
 
 
         def getRuleIndex(self):
@@ -428,30 +423,30 @@ class CoreMarkupParser ( Parser ):
         self.enterRule(localctx, 8, self.RULE_question_detail)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 41
+            self.state = 39
             localctx.qd = self.match(CoreMarkupParser.QUESTION_DETAIL_TAG)
-            self.state = 42
+            self.state = 40
             if not self.bounds(localctx.qd, -1):
                 from antlr4.error.Errors import FailedPredicateException
                 raise FailedPredicateException(self, "self.bounds($qd, -1)")
-            self.state = 43
+            self.state = 41
             self.label()
             CoreMarkupParser.level = self.get_length(localctx.qd)
-            self.state = 47 
+            self.state = 45 
             self._errHandler.sync(self)
             _alt = 1
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
                 if _alt == 1:
-                    self.state = 47
+                    self.state = 45
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [CoreMarkupParser.QUESTION_DETAIL_TAG]:
-                        self.state = 45
+                        self.state = 43
                         self.question_detail()
                         pass
-                    elif token in [CoreMarkupParser.NESTED_DETAIL_TAG]:
-                        self.state = 46
-                        self.nested_detail()
+                    elif token in [CoreMarkupParser.DETAIL_TAG]:
+                        self.state = 44
+                        self.detail()
                         pass
                     else:
                         raise NoViableAltException(self)
@@ -459,62 +454,10 @@ class CoreMarkupParser ( Parser ):
 
                 else:
                     raise NoViableAltException(self)
-                self.state = 49 
+                self.state = 47 
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
 
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class Nested_detailContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-            self.nd = None # Token
-
-        def label(self):
-            return self.getTypedRuleContext(CoreMarkupParser.LabelContext,0)
-
-
-        def NESTED_DETAIL_TAG(self):
-            return self.getToken(CoreMarkupParser.NESTED_DETAIL_TAG, 0)
-
-        def getRuleIndex(self):
-            return CoreMarkupParser.RULE_nested_detail
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterNested_detail" ):
-                listener.enterNested_detail(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitNested_detail" ):
-                listener.exitNested_detail(self)
-
-
-
-
-    def nested_detail(self):
-
-        localctx = CoreMarkupParser.Nested_detailContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_nested_detail)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 51
-            localctx.nd = self.match(CoreMarkupParser.NESTED_DETAIL_TAG)
-            self.state = 52
-            if not self.bounds(localctx.nd, 0):
-                from antlr4.error.Errors import FailedPredicateException
-                raise FailedPredicateException(self, "self.bounds($nd, 0)")
-            self.state = 53
-            self.label()
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -556,16 +499,16 @@ class CoreMarkupParser ( Parser ):
     def detail(self):
 
         localctx = CoreMarkupParser.DetailContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_detail)
+        self.enterRule(localctx, 10, self.RULE_detail)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 55
+            self.state = 49
             localctx.d = self.match(CoreMarkupParser.DETAIL_TAG)
-            self.state = 56
+            self.state = 50
             if not self.bounds(localctx.d, 0):
                 from antlr4.error.Errors import FailedPredicateException
                 raise FailedPredicateException(self, "self.bounds($d, 0)")
-            self.state = 57
+            self.state = 51
             self.label()
         except RecognitionException as re:
             localctx.exception = re
@@ -582,8 +525,7 @@ class CoreMarkupParser ( Parser ):
             self._predicates = dict()
         self._predicates[2] = self.header_sempred
         self._predicates[4] = self.question_detail_sempred
-        self._predicates[5] = self.nested_detail_sempred
-        self._predicates[6] = self.detail_sempred
+        self._predicates[5] = self.detail_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
             raise Exception("No predicate with index:" + str(ruleIndex))
@@ -600,13 +542,8 @@ class CoreMarkupParser ( Parser ):
                 return self.bounds(localctx.qd, -1)
          
 
-    def nested_detail_sempred(self, localctx:Nested_detailContext, predIndex:int):
-            if predIndex == 2:
-                return self.bounds(localctx.nd, 0)
-         
-
     def detail_sempred(self, localctx:DetailContext, predIndex:int):
-            if predIndex == 3:
+            if predIndex == 2:
                 return self.bounds(localctx.d, 0)
          
 
