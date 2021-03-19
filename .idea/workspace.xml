@@ -20,90 +20,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e6a177b-a199-4de7-911d-134411a45ad5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cmu-app/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-list/deck-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-list/deck-list.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-list/deck-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-tool-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-tool.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-tool.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-tool.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-tool.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/editor/editor-routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/editor/editor.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/editor/text-editor/text-editor.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/editor/text-editor/text-editor.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmu-app/src/app/components/editor/text-editor/text-editor.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/.browserslistrc" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/.browserslistrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/e2e/protractor.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/e2e/src/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/e2e/src/app.po.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/e2e/src/app.po.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/e2e/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/e2e/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/karma.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-list/deck-list.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-list/deck-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-list/deck-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-nav/deck-nav.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-nav/deck-nav.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-nav/deck-nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-tool-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-tool-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-tool.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-tool.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-use/deck-use.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-use/deck-use.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/deck-tool/deck-use/deck-use.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/directives/dropdown.directive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/directives/dropdown.directive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/editor/editor-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/editor/editor-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/editor/editor.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/editor/editor.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/editor/text-editor/text-editor.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/editor/text-editor/text-editor.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/editor/text-editor/text-editor.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/json-typings.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/json-typings.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/models/card-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/models/card-model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/models/deck-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/models/deck-model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/app/services/deck.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/services/deck.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/fonts/OpenSans-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/fonts/OpenSans-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/fonts/OpenSans-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/fonts/OpenSans-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/fonts/OpenSans-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/fonts/OpenSans-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/prod_samples/Sample.cmu.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-account.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-account.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-arrow-back.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-arrow-back.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-details.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-details.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-edit.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-edit.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-enumerable.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-enumerable.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-forgot.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-forgot.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-header-down.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-header-down.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-header-up.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-header-up.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-menu-toggle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-menu-toggle.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-open.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-open.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-preferences.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-preferences.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-question.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-question.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-remembered.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-remembered.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-save-as.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-save-as.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-save.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-save.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-statistics.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-statistics.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-switch-decktool.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-switch-decktool.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/icon-switch-editor.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/icon-switch-editor.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/logo-dark.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/logo-dark.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/logo-light.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/logo-light.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/assets/svg/logo-styled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/assets/svg/logo-styled.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/tsconfig.base.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/tsconfig.spec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core-markup-webapp/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/tslint.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-list/deck-list.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-nav/deck-nav.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-tool-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-tool.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-viewer/deck-viewer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-viewer/deck-viewer.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/deck-tool/deck-use/deck-use.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/deck-tool/deck-viewer/deck-viewer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/editor/editor-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/editor/editor.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/editor/text-editor/text-editor.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/menu/menu.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/menu/menu.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmu-app/src/app/menu/menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/cmu-app/src/app/components/menu/menu.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +84,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\Github\core-markup-webapp\cmu-app\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\core-markup-webapp\cmu-app\src\app\components" />
+      <recent name="D:\Github\core-markup-webapp\cmu-app\src\app" />
+      <recent name="D:\Github\core-markup-webapp\cmu-app\src\app\deck-tool" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.start">
     <configuration name="Unnamed" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
@@ -176,7 +137,8 @@
       <workItem from="1615810050579" duration="1620000" />
       <workItem from="1616143469187" duration="5106000" />
       <workItem from="1616150842283" duration="1937000" />
-      <workItem from="1616153254479" duration="3389000" />
+      <workItem from="1616153254479" duration="4801000" />
+      <workItem from="1616158375057" duration="284000" />
     </task>
     <servers />
   </component>

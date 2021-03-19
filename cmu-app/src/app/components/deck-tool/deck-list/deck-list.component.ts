@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Deck} from "../../models/deck-model";
+import {Deck} from "../../../models/deck-model";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DeckService} from "../../services/deck.service";
+import {DeckService} from "../../../services/deck.service";
 
 @Component({
   selector: 'app-deck-list',

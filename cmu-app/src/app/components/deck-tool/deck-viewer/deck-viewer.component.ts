@@ -1,12 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {Card} from "../../models/card-model";
+import {Card} from "../../../models/card-model";
 
 @Component({
   selector: 'app-deck-use',
-  templateUrl: './deck-use.component.html',
-  styleUrls: ['./deck-use.component.scss'],
+  templateUrl: './deck-viewer.component.html',
+  styleUrls: ['./deck-viewer.component.scss'],
   animations: [
     trigger('card', [
       state('default', style({
@@ -27,7 +26,7 @@ import {Card} from "../../models/card-model";
     ])
   ]
 })
-export class DeckUseComponent implements OnInit {
+export class DeckViewerComponent implements OnInit {
   @ViewChild('currentCard') currentCard;
 
   private allCards: Card[] = [];
