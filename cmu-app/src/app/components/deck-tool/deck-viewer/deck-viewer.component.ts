@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {Card} from "../../../models/card-model";
+import {DeckService} from "../../../services/deck.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-deck-use',
@@ -30,12 +32,11 @@ export class DeckViewerComponent implements OnInit {
   @ViewChild('currentCard') currentCard;
 
   private allCards: Card[] = [];
-
   domCard: Card[] = [];
   cardState: CardState = CardState.DEFAULT;
 
 
-  constructor() {}
+  constructor(private route:ActivatedRoute, private deckList: DeckService) {}
 
   ngOnInit(): void {
     this.swapCard(this.getRandomInt(this.allCards.length));

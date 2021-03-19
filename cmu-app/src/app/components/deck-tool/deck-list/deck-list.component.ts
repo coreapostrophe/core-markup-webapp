@@ -9,19 +9,18 @@ import {DeckService} from "../../../services/deck.service";
   styleUrls: ['./deck-list.component.scss']
 })
 export class DeckListComponent implements OnInit {
-  private decks: Deck[] = [];
+  public decks: Deck[] = [];
 
-  constructor(private router: Router, private route:ActivatedRoute, private deckList: DeckService) {
-  }
+  constructor(private router: Router, private route:ActivatedRoute, private deckList: DeckService) { }
 
   ngOnInit(): void {
     this.decks = this.deckList.getDeckList();
   }
 
-
-
   onClickDeck(event, deckID){
-    this.router.navigate(['Flashcard',deckID], {relativeTo: this.route.parent}).then(e=>{
+    this.router.navigate(['Flashcard', deckID], {
+      relativeTo: this.route.parent
+    }).then(e=>{
       // error handling
     });
   }
