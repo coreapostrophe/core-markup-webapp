@@ -1,0 +1,13 @@
+#menu-container{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(-40%);
+  margin: 0;
+  z-index: 100;
+}
+
+#editor-container{
+  box-sizing: border-box;
+  padding: 5.5rem 1rem 0 1rem;
+  height: 100%;
+}
