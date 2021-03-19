@@ -38,3 +38,5 @@ header                      : h=HEADER_TAG {headerBounds($h)}? {headerLevel++;} 
 question                    : {reset();} t=QUESTION_TAG label (question_detail | detail)+;
 question_detail             : qd=QUESTION_DETAIL_TAG {bounds($qd, -1)}? label {level = len($qd);} (question_detail | detail)+;
 detail                      : d=DETAIL_TAG {bounds($d, 0)}? label;
+
+option                      : OPTION_TAG KEY VALUE;
