@@ -2,8 +2,8 @@
   <div  class="btn-forgot" (click)="onCardDecision(false)">
     <img src="../../../assets/svg/icon-forgot.svg">
   </div>
-  <div class="current-card" [@card] *ngFor="let card of domCard" #currentCard>
-    {{ (cardState == 'flipped') ? card.back : card.front }}
+  <div class="current-card">
+      {{ currentText }}
   </div>
   <div  class="btn-remember" (click)="onCardDecision(true)">
     <img src="../../../assets/svg/icon-remembered.svg">

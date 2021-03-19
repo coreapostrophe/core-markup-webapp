@@ -1,6 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {Card} from "../../../models/card-model";
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Card} from '../../../models/card-model';
+import {DeckService} from '../../../services/deck.service';
+import {ActivatedRoute} from '@angular/router';
+import {Observable, Subscription} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-deck-use',
@@ -16,9 +20,9 @@ import {Card} from "../../../models/card-model";
         style({
           opacity: 0,
           transform: 'Scale(0.75)'
-        }),animate("0.2s ease")
+        }), animate('0.2s ease')
       ]),
-      transition(':leave', [animate("0.4s ease",
+      transition(':leave', [animate('0.4s ease',
         style({
           opacity: 0,
           transform: 'Scale(0.75)'
@@ -27,26 +31,27 @@ import {Card} from "../../../models/card-model";
   ]
 })
 export class DeckViewerComponent implements OnInit {
-  @ViewChild('currentCard') currentCard;
-
+  private deckId;
   private allCards: Card[] = [];
+  private deckIdSubscription: Subscription;
 
-  domCard: Card[] = [];
   cardState: CardState = CardState.DEFAULT;
+  currentCard: Card;
+  currentText = '';
+  currentHeaders: string[] = [];
 
-
-  constructor() {}
+  constructor(private route: ActivatedRoute, private deckService: DeckService) {}
 
   ngOnInit(): void {
-    this.swapCard(this.getRandomInt(this.allCards.length));
+    this.deckIdSubscription = this.route.params.subscribe(params => {
+      this.deckId = params.id;
+    });
+    this.allCards = this.deckService.getDeckList()[this.deckId].cards;
+    this.chooseCard();
   }
 
-  private getRandomInt(max){
-    return Math.floor(Math.random()*Math.floor(max))
-  }
-
-  onCardDecision(isRemembered: boolean){
-    if(this.cardState != CardState.FLIPPED){
+  onCardDecision(isRemembered: boolean): void{
+    if (this.cardState !== CardState.FLIPPED){
       this.cardState = CardState.FLIPPED;
     } else {
       this.cardState = isRemembered ? CardState.REMEMBERED : CardState.FORGOT;
@@ -55,11 +60,26 @@ export class DeckViewerComponent implements OnInit {
     }
   }
 
-  private swapCard(i: number){
-    if(this.domCard.length > 0){
-      this.domCard = [];
+  private getRandomInt(max): number{
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  private chooseCard(): void{
+    if (this.currentCard){
+      console.log('test');
+      this.currentHeaders = this.currentCard.headers;
+      const enumerable: boolean = this.currentCard.enumerable;
+      if (enumerable){
+
+      }
+
+    } else {
+      this.swapCard(this.getRandomInt(this.allCards.length));
     }
-    this.domCard.push(this.allCards[i]);
+  }
+
+  private swapCard(i: number): void{
+    this.currentCard = this.allCards[i];
   }
 }
 
