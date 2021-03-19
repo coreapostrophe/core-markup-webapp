@@ -1,9 +1,8 @@
 export class Card{
   concept: string;
   details: {
-    order: number,
     label?: string,
-    next?: Card
+    next?: number
   }[];
   enumerable: boolean;
   headers: string[];
