@@ -31,7 +31,7 @@ options {
 /*
  *	Parser Rules
  */
-cmu                         : (header | question)+ EOF;
+cmu                         : (option | header | question)+ EOF;
 label                       : TEXT+;
 header                      : h=HEADER_TAG {headerBounds($h)}? {headerLevel++;} label;
 

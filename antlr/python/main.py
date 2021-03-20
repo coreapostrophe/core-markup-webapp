@@ -13,6 +13,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
     SYMBOL_DETAIL = "-"
     SYMBOL_QUESTION = "*"
     SYMBOL_ENUM_QUESTION = "$"
+    SYMBOL_OPTION = ";"
 
     def __init__(self):
         self.headers = []

@@ -23,4 +23,4 @@ TEXT                        : ~[\r\n]+ -> popMode;
 mode OPTION;
 
 KEY                         : [A-Za-z]+;
-VALUE                       : '"' ( '""' | ~["\r\n] )* '"';
+VALUE                       : '"' ( '""' | ~["\r\n] )* '"' -> popMode;
