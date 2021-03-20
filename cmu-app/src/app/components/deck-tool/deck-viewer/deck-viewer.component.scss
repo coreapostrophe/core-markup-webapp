@@ -14,7 +14,9 @@
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--theme-dark);
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0.8rem;
   height: 25rem;
   width: 15rem;

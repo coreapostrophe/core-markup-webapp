@@ -57,7 +57,7 @@ export class DeckViewerComponent implements OnInit {
     }
   }
 
-  private getRandomInt(max): number{
+  private getRandomInt(max: number): number{
     return Math.floor(Math.random() * Math.floor(max));
   }
 

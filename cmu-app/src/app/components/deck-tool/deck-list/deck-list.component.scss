@@ -5,7 +5,7 @@
   padding: 0.5rem;
   border-radius: 0.8rem;
   height: calc(100% - 3rem);
-  background: var(--theme-outline);
+  background-color: var(--theme-outline);
 
   &::-webkit-scrollbar{
     width: 0.5rem;
@@ -41,6 +41,9 @@
     }
 
     .title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
       padding: 1rem;
       color: var(--theme-dark);
       font-weight: bold;
