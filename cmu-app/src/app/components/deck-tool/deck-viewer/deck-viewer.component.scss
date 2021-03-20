@@ -6,62 +6,61 @@
   height: calc(100% - 3rem);
 }
 
-.current-card{
+.viewed-card{
   cursor: pointer;
   position: absolute;
   box-sizing: border-box;
+  background-color: white;
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--theme-dark);
   display: inline-block;
   border-radius: 0.8rem;
-  background-color: white;
   height: 25rem;
   width: 15rem;
   text-align: left;
   vertical-align:top;
-  border: 0.5pt solid var(--theme-outline);
+  padding: 1rem;
+  box-shadow: 0 0 5rem -2rem rgba(0,0,0,0.25);
   transition: all 0.4s;
+  overflow: auto;
 }
 
-.btn-remember, .btn-forgot{
+.card-face{
+  display: flex;
+}
+
+.btn-choice{
   z-index: 1;
   cursor: pointer;
   height: 4rem;
   width: 4rem;
   transition: transform 0.4s;
+  &:hover{
+    transform: scale(1.05);
+    transition: transform 0.4s;
+  }
+  &:after{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7rem;
+    bottom: 100%;
+  }
 }
 
 .btn-remember{
+  @extend .btn-choice;
   margin-left: 10rem;
-
+  &:after{
+    content: '[ Enter ]';
+  }
 }
 
 .btn-forgot{
+  @extend .btn-choice;
   margin-right: 10rem;
-}
-
-.btn-remember:hover, .btn-forgot:hover{
-  transform: scale(1.05);
-  transition: transform 0.4s;
-}
-
-.btn-remember:after, .btn-forgot:after{
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-  font-size: 0.7rem;
-  bottom: 100%;
-}
-
-.btn-remember:after{
-  content: '[ Enter ]';
-}
-
-.btn-forgot:after{
-  content: '[ Bckspc ]';
-}
-
-.btn-remember:hover + .current-card{
-  background-color: red;
+  &:after{
+    content: '[ Bckspc ]';
+  }
 }

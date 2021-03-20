@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Deck} from "../models/deck-model";
-import sampleDeck from "../../../../antlr/data/Sample.cmu.json";
+import {Deck} from '../models/deck-model';
+import sampleDeck from '../../../../antlr/data/Sample.cmu.json';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class DeckService {
     id: 0,
     title: 'Test Deck',
     colorTag: 'red',
+    backgroundImage: 'https://i.kym-cdn.com/photos/images/facebook/001/376/201/1ac.png',
     cards: sampleDeck
   };
 

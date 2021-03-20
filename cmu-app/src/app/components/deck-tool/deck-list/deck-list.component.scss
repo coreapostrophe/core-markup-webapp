@@ -2,58 +2,64 @@
   text-align: left;
   box-sizing: border-box;
   overflow: auto;
+  padding: 0.5rem;
   border-radius: 0.8rem;
   height: calc(100% - 3rem);
   background: var(--theme-outline);
-}
 
-.deck-list-item{
-  cursor: pointer;
-  box-sizing: border-box;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: var(--theme-dark);
-  position: relative;
-  padding: 10pt;
-  margin: 10pt;
-  display: inline-block;
-  border-radius: 0.8rem;
-  background-color: white;
-  height: 15rem;
-  width: 10rem;
-  text-align: left;
-  vertical-align:top;
-  transition: 0.4s;
-}
+  &::-webkit-scrollbar{
+    width: 0.5rem;
+  }
 
-.deck-list-item:hover{
-  transform: scale(1.05);
-  transition: 0.4s;
-}
+  &::-webkit-scrollbar-track{
+    margin: 10pt;
+  }
 
-.deck-mark{
-  cursor: pointer;
-  content: '';
-  position: absolute;
-  background-color: yellow;
-  transform: translateY(0.5rem);
-  height: 3rem;
-  width: 2.5rem;
-  right: 1rem;
-  bottom: 0;
-  clip-path: polygon(50% 25%, 100% 0, 100% 98%, 0 100%, 0 0);
-}
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--theme-dark);
+    border-radius: 1rem;
+  }
 
-.deck-list-group::-webkit-scrollbar{
-  width: 0.5rem;
-}
+  .item{
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 1rem;
+    display: block;
+    border-radius: 0.8rem;
+    background-color: white;
+    height: 15rem;
+    transition: all 0.4s;
+    border-bottom: 0.5rem solid;
+    background-size: cover;
+    background-position: center;
 
-.deck-list-group::-webkit-scrollbar-track{
-  margin: 10pt;
-}
+    &:hover{
+      transform: scale(1.05);
+      transition: 0.4s;
+    }
 
+    .title{
+      padding: 1rem;
+      color: var(--theme-dark);
+      font-weight: bold;
+      font-size: 1.2rem;
+      vertical-align:top;
+      text-align: left;
+      height: 100%;
+    }
 
-.deck-list-group::-webkit-scrollbar-thumb {
-  background-color: var(--theme-dark);
-  border-radius: 1rem;
+    .overlay{
+      color: white;
+      position: relative;
+      background-color: rgba(0,0,0,0.20);
+    }
+
+    @media (min-width: 576px) {
+      &{
+        width: 10rem;
+      }
+    }
+  }
 }

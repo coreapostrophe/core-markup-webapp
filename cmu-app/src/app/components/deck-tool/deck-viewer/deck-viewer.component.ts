@@ -4,7 +4,6 @@ import {Card} from '../../../models/card-model';
 import {DeckService} from '../../../services/deck.service';
 import {ActivatedRoute} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-deck-use',
@@ -37,8 +36,6 @@ export class DeckViewerComponent implements OnInit {
 
   cardState: CardState = CardState.DEFAULT;
   currentCard: Card;
-  currentText = '';
-  currentHeaders: string[] = [];
 
   constructor(private route: ActivatedRoute, private deckService: DeckService) {}
 
@@ -65,17 +62,7 @@ export class DeckViewerComponent implements OnInit {
   }
 
   private chooseCard(): void{
-    if (this.currentCard){
-      console.log('test');
-      this.currentHeaders = this.currentCard.headers;
-      const enumerable: boolean = this.currentCard.enumerable;
-      if (enumerable){
-
-      }
-
-    } else {
-      this.swapCard(this.getRandomInt(this.allCards.length));
-    }
+    this.swapCard(this.getRandomInt(this.allCards.length));
   }
 
   private swapCard(i: number): void{

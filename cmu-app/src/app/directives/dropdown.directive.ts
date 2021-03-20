@@ -12,16 +12,16 @@ export class DropdownDirective {
 
   constructor(private el: ElementRef, @Inject(DOCUMENT) private document: Document) {}
 
-  @HostListener('click') onClick(){
+  @HostListener('click') onClick(): void{
     this.contentElement = this.document.getElementById(this.dropdownContent);
     this.toggleDropdown();
   }
 
-  @HostListener('focusout') onFocusOut(){
+  @HostListener('focusout') onFocusOut(): void{
     this.contentElement.style.display = 'none';
   }
 
-  private toggleDropdown(){
+  private toggleDropdown(): void{
     this.contentElement.style.display = (this.contentElement.style.display != 'block') ? 'block' : 'none';
   }
 }
