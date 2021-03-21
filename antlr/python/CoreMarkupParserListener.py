@@ -62,5 +62,14 @@ class CoreMarkupParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CoreMarkupParser#option.
+    def enterOption(self, ctx:CoreMarkupParser.OptionContext):
+        pass
+
+    # Exit a parse tree produced by CoreMarkupParser#option.
+    def exitOption(self, ctx:CoreMarkupParser.OptionContext):
+        pass
+
+
 
 del CoreMarkupParser

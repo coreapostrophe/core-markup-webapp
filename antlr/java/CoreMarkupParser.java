@@ -17,7 +17,7 @@ public class CoreMarkupParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		OPTION_TAG=1, HEADER_TAG=2, QUESTION_DETAIL_TAG=3, QUESTION_TAG=4, DETAIL_TAG=5, 
-		NEWLINE=6, TEXT=7, KEY=8, VALUE=9;
+		NEWLINE=6, TEXT=7, KEY=8, VALUE=9, WS=10;
 	public static final int
 		RULE_cmu = 0, RULE_label = 1, RULE_header = 2, RULE_question = 3, RULE_question_detail = 4, 
 		RULE_detail = 5, RULE_option = 6;
@@ -36,7 +36,7 @@ public class CoreMarkupParser extends Parser {
 	private static String[] makeSymbolicNames() {
 		return new String[] {
 			null, "OPTION_TAG", "HEADER_TAG", "QUESTION_DETAIL_TAG", "QUESTION_TAG", 
-			"DETAIL_TAG", "NEWLINE", "TEXT", "KEY", "VALUE"
+			"DETAIL_TAG", "NEWLINE", "TEXT", "KEY", "VALUE", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -602,7 +602,7 @@ public class CoreMarkupParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13?\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f?\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\2\6\2\24\n\2\r\2"+
 		"\16\2\25\3\2\3\2\3\3\6\3\33\n\3\r\3\16\3\34\3\4\3\4\3\4\3\4\3\4\3\5\3"+
 		"\5\3\5\3\5\3\5\6\5)\n\5\r\5\16\5*\3\6\3\6\3\6\3\6\3\6\3\6\6\6\63\n\6\r"+
