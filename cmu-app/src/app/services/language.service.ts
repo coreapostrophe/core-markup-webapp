@@ -1,6 +1,6 @@
-import { CmuContext } from "$antlr/CoreMarkupLexer";
-// import { parseAndGetASTRoot, parseAndGetSyntaxErrors } from "./parser";
-import { CoreMarkupError } from "./error.listener";
+// import { CmuContext } from "$app/language/antlr/CoreMarkupLexer";
+import { parseAndGetASTRoot, parseAndGetSyntaxErrors } from "../language/parser";
+import { CoreMarkupError } from "../language/error.listener";
 
 export default class CoreMarkupLanguageService {
     validate(code: string): CoreMarkupError[] {

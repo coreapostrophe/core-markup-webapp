@@ -15,6 +15,9 @@ export default class CoreMarkupErrorListener implements ANTLRErrorListener<any>{
 
     /**
      * @override
+     * 
+     * Listens for syntax errors when traversing the parse tree
+     * 
      * @param recognizer 
      * @param offendingSymbol 
      * @param line 
@@ -43,7 +46,7 @@ export default class CoreMarkupErrorListener implements ANTLRErrorListener<any>{
         );
     }
 
-    /** */
+    /** Returns the list of gathered errors */
     getErrors(): CoreMarkupError[] {
         return this.errors;
     }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
+import { parse } from '$app/language/parser';
 
 
 @Component({
@@ -24,5 +24,6 @@ export class TextEditorComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 }
