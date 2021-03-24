@@ -1,11 +1,8 @@
-import * as monaco from "monaco-editor-core";
-
-import Uri = monaco.Uri;
 import { CoreMarkupLanguageWorker } from './CoreMarkupLanguageWorker';
 import { languageID } from "$app/language/config";
 
 export class WorkerManager {
-
+    
     private worker: monaco.editor.MonacoWebWorker<CoreMarkupLanguageWorker>;
     private workerClientProxy: Promise<CoreMarkupLanguageWorker>;
 
@@ -31,7 +28,7 @@ export class WorkerManager {
         return this.workerClientProxy;
     }
 
-    async getLanguageServiceWorker(...resources: Uri[]): Promise<CoreMarkupLanguageWorker> {
+    async getLanguageServiceWorker(...resources: monaco.Uri[]): Promise<CoreMarkupLanguageWorker> {
         const _client: CoreMarkupLanguageWorker = await this.getClientProxy();
         await this.worker.withSyncedResources(resources)
         return _client;

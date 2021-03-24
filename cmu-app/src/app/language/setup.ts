@@ -1,16 +1,12 @@
 import { CoreMarkupLanguageWorker } from "$app/workers/CoreMarkupLanguageWorker";
 import DiagnosticsAdapter from "$app/workers/DiagnosticsAdapter";
 import { WorkerManager } from "$app/workers/WorkerManager";
-import { languageID, languageExtensionPoint } from "./config";
+import { languageID, languageExtensionPoint, monarchLanguage, richLanguageConfiguration } from "./config";
 
 /**
  * Initializes the Monaco editor instance
  */
 export function onMonacoLoad() {
-    const monaco = (window as any).monaco;
-
-    new Worker("../workers/language.worker.ts", { name: "coremarkup", type: "module" });
-
     const coreMarkupWorkerUrl = "./coremarkup.worker.js";
     const editorWorkerUrl = "./editor.worker.js";
 
@@ -26,8 +22,8 @@ export function onMonacoLoad() {
     // Register CMU language
     monaco.languages.register(languageExtensionPoint);
     monaco.languages.onLanguage(languageID, () => {
-        // monaco.languages.setMonarchTokensProvider(languageID, monarchLanguage);
-        // monaco.languages.setLanguageConfiguration(languageID, richLanguageConfiguration);
+        monaco.languages.setMonarchTokensProvider(languageID, monarchLanguage);
+        monaco.languages.setLanguageConfiguration(languageID, richLanguageConfiguration);
 
         // Create worker manager
         const client = new WorkerManager();
@@ -37,7 +33,7 @@ export function onMonacoLoad() {
             return serviceWorker;
         };
 
-        //Call the errors provider
+        // Call the errors provider
         new DiagnosticsAdapter(worker);
         // monaco.languages.registerDocumentFormattingEditProvider(languageID, new TodoLangFormattingProvider(worker));
     });

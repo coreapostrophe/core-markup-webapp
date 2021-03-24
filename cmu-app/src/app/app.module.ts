@@ -9,13 +9,8 @@ import { EditorModule } from "./components/editor/editor.module";
 import { DeckToolModule } from "./components/deck-tool/deck-tool.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
 import { onMonacoLoad } from "$app/language/setup";
-
-const monacoConfig: NgxMonacoEditorConfig = {
-    defaultOptions: { scrollBeyondLastLine: false },
-    onMonacoLoad
-};
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 
 @NgModule({
     declarations: [
@@ -29,7 +24,7 @@ const monacoConfig: NgxMonacoEditorConfig = {
         AppRoutingModule,
         EditorModule,
         DeckToolModule,
-        MonacoEditorModule.forRoot(monacoConfig)
+        MonacoEditorModule
     ],
     providers: [],
     exports: [

@@ -1,15 +1,12 @@
-// import { worker } from "monaco-editor-core/esm/vs/editor/editor.api";
-
-
 import { CoreMarkupError } from "../language/error.listener";
 import CoreMarkupLanguageService from "../services/language.service";
 
 export class CoreMarkupLanguageWorker {
 
-    private _ctx: any; // worker.IWorkerContext;
+    private _ctx: monaco.worker.IWorkerContext;
     private _languageService: CoreMarkupLanguageService;
 
-    constructor(ctx: any) {
+    constructor(ctx: monaco.worker.IWorkerContext) {
         this._ctx = ctx;
         this._languageService = new CoreMarkupLanguageService();
     }

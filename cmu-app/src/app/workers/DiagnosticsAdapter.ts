@@ -1,4 +1,4 @@
-import * as monaco from "monaco-editor-core";
+
 import { languageID } from "$app/language/config";
 import { WorkerAccessor } from "$app/language/setup";
 import { CoreMarkupError } from "$app/language/error.listener";

@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { TextEditorComponent } from './text-editor/text-editor.component';
 import { EditorRoutingModule } from "./editor-routing.module";
 import { FormsModule } from "@angular/forms";
-import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 
 @NgModule({
   declarations: [TextEditorComponent],
   imports: [
     CommonModule,
-    MonacoEditorModule,
     EditorRoutingModule,
-    FormsModule
+    FormsModule,
+    MonacoEditorModule
   ]
 })
 export class EditorModule { }
