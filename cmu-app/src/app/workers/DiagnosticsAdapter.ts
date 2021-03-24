@@ -1,4 +1,3 @@
-
 import { languageID } from "$app/language/config";
 import { WorkerAccessor } from "$app/language/setup";
 import { CoreMarkupError } from "$app/language/error.listener";
@@ -21,7 +20,7 @@ export default class DiagnosticsAdapter {
     }
     private async validate(resource: monaco.Uri): Promise<void> {
         // get the worker proxy
-        const worker = await this.worker(resource)
+        const worker = await this.worker(resource);
         // call the validate methode proxy from the langaueg service and get errors
         const errorMarkers = await worker.doValidation();
         // get the current model(editor or file) which is only one

@@ -2,7 +2,7 @@ import { CoreMarkupLanguageWorker } from './CoreMarkupLanguageWorker';
 import { languageID } from "$app/language/config";
 
 export class WorkerManager {
-    
+
     private worker: monaco.editor.MonacoWebWorker<CoreMarkupLanguageWorker>;
     private workerClientProxy: Promise<CoreMarkupLanguageWorker>;
 
@@ -12,6 +12,10 @@ export class WorkerManager {
 
     private getClientProxy(): Promise<CoreMarkupLanguageWorker> {
         if (!this.workerClientProxy) {
+            // Create worker bundle
+            new Worker("../workers/language.worker", { name: "coremarkup", type: "module" });
+            
+            // Proxy web worker
             this.worker = monaco.editor.createWebWorker<CoreMarkupLanguageWorker>({
                 // module that exports the create() method and returns a `JSONWorker` instance
                 moduleId: 'CoreMarkupLanguageWorker',

@@ -3,10 +3,10 @@ import CoreMarkupLanguageService from "../services/language.service";
 
 export class CoreMarkupLanguageWorker {
 
-    private _ctx: monaco.worker.IWorkerContext;
+    private _ctx: any;
     private _languageService: CoreMarkupLanguageService;
 
-    constructor(ctx: monaco.worker.IWorkerContext) {
+    constructor(ctx: any) {
         this._ctx = ctx;
         this._languageService = new CoreMarkupLanguageService();
     }
