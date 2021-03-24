@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import { parse } from '$app/language/parser';
-
+import { Component, OnInit } from '@angular/core';
+import { languageID } from "$app/language/config";
 
 @Component({
   selector: 'app-text-editor',
@@ -11,7 +10,7 @@ export class TextEditorComponent implements OnInit {
 
   editorOptions = {
     theme: 'vs-light',
-    language: 'text',
+    language: languageID,
     lineNumbers: 'off',
     borderRadius: '5',
     minimap: {

@@ -5,10 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DropdownDirective } from './directives/dropdown.directive';
-import {EditorModule} from "./components/editor/editor.module";
-import {MonacoEditorModule} from "ngx-monaco-editor";
-import {DeckToolModule} from "./components/deck-tool/deck-tool.module";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { EditorModule } from "./components/editor/editor.module";
+import { DeckToolModule } from "./components/deck-tool/deck-tool.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
+import { MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor';
+import { onMonacoLoad } from "$app/language/setup";
+
+const monacoConfig: NgxMonacoEditorConfig = {
+    defaultOptions: { scrollBeyondLastLine: false },
+    onMonacoLoad
+};
 
 @NgModule({
     declarations: [
@@ -22,7 +29,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         AppRoutingModule,
         EditorModule,
         DeckToolModule,
-        MonacoEditorModule.forRoot()
+        MonacoEditorModule.forRoot(monacoConfig)
     ],
     providers: [],
     exports: [

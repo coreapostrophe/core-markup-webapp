@@ -12,5 +12,8 @@
 module.exports = {
     entry: {
         "editor.worker": "monaco-editor-core/esm/vs/editor/editor.worker.js"
-    }
+    },
+    // output: {
+    //     globalObject: "self"
+    // }
 }
