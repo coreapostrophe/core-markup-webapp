@@ -1,13 +1,32 @@
 <div class="flashcard-tool-container">
-  <div  class="btn-forgot" (click)="onCardDecision(false)">
-    <img src="../../../assets/svg/icon-forgot.svg">
-  </div>
-  <div class="viewed-card flip-front">
-      <div>
-        {{ currentCard.concept }}
+  <div class="col-sm-6 p-0">
+    <div class="viewed-card">
+      <!--NON-ENUMERABLE Card Logic-->
+      <div *ngIf="!currentCard.enumerable; else enumerable">
+        <div *ngIf="!currentCard.flipped; else flipped">
+          {{ currentCard.concept }}
+        </div>
+        <ng-template #flipped>
+          {{ currentCard.concept }}
+        </ng-template>
       </div>
-  </div>
-  <div  class="btn-remember" (click)="onCardDecision(true)">
-    <img src="../../../assets/svg/icon-remembered.svg">
+
+      <!--ENUMERABLE Card Logic-->
+      <ng-template #enumerable>
+        {{ currentCard.concept }}
+      </ng-template>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="btn-forget" (click)="onCardDecision(false)">
+          Forget
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="btn-remember" (click)="onCardDecision(true)">
+          Remember
+        </div>
+      </div>
+    </div>
   </div>
 </div>

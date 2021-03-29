@@ -1,73 +1,67 @@
 .flashcard-tool-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   box-sizing: border-box;
   height: calc(100% - 3rem);
 }
 
 .viewed-card{
+  margin-top: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   cursor: pointer;
-  position: absolute;
   box-sizing: border-box;
   background-color: white;
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--theme-dark);
   border-radius: 0.8rem;
-  height: 25rem;
-  width: 15rem;
-  box-shadow: 0 0 5rem -2rem rgba(0,0,0,0.25);
+  height: 20rem;
+  width: 100%;
   overflow: hidden;
+  border: 0.5pt solid var(--theme-outline);
   transition: all 0.4s;
-
-  .card-front, .card-back{
-    padding: 1rem;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 }
 
-.btn-choice{
-  z-index: 1;
+.col-sm-6{
+  padding: 1rem 1rem 0 1rem;
+}
+
+.btn-remember, .btn-forget{
   cursor: pointer;
-  height: 4rem;
-  width: 4rem;
-  transition: transform 0.4s;
+  border-radius: 50vh;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  height: 100%;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: filter 0.4s;
+
   &:hover{
-    transform: scale(1.05);
-    transition: transform 0.4s;
-  }
-  &:after{
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    font-size: 0.7rem;
-    bottom: 100%;
+    filter: brightness(0.9);
+    transition: filter 0.4s;
   }
 }
 
 .btn-remember{
-  @extend .btn-choice;
-  margin-left: 10rem;
-  &:after{
-    content: '[ Enter ]';
-  }
+  $btn-color: #0DD32E;
+  background-color: $btn-color;
+  box-shadow: 0 0.25rem 2rem -0.5rem $btn-color;
 }
 
-.btn-forgot{
-  @extend .btn-choice;
-  margin-right: 10rem;
-  &:after{
-    content: '[ Bckspc ]';
-  }
+.btn-forget{
+  $btn-color: #DA3948;
+  background-color: $btn-color;
+  box-shadow: 0 0.25rem 2rem -0.5rem $btn-color;
 }
-
-

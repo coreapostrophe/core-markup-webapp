@@ -7,21 +7,22 @@ import sampleDeck from '../../../../antlr/data/Sample.cmu.json';
 })
 export class DeckService {
   private deckList: Deck[] = [];
-  public testJson = {
-    id: 0,
-    title: 'Test Deck',
-    colorTag: 'orange',
-    backgroundImage: 'https://i.kym-cdn.com/photos/images/facebook/001/376/201/1ac.png',
-    cards: sampleDeck
-  };
-  public testDeck = new Deck(this.testJson, 0);
+  private sampleDeck = new Deck(sampleDeck, 0);
 
   constructor() {
-    this.addDeck(this.testDeck);
+    this.addDeck(this.sampleDeck);
   }
 
   public addDeck(deck: Deck): void{
     this.deckList.push(deck);
+  }
+
+  public getDeck(index: number): Deck{
+    try{
+      return this.deckList[index];
+    } catch (e){
+      return null;
+    }
   }
 
   public getDeckList(): Deck[]{

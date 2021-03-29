@@ -9,6 +9,7 @@ export class Card{
   private _headers: string[];
   private _root: boolean;
 
+  private _flipped: boolean;
 
   constructor(card: CardModel) {
     this._concept = card.concept;
@@ -33,6 +34,9 @@ export class Card{
   get headers(): string[] {return this._headers; }
   get root(): boolean {return this._root; }
   get parent(): number {return this._parent; }
+  get flipped(): boolean {return this._flipped;}
+
+  set flipped(value: boolean) {this._flipped = value;}
 }
 
 interface CardModel{

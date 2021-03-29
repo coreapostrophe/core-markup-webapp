@@ -4,6 +4,7 @@ import {Card} from '../../../models/card-model';
 import {DeckService} from '../../../services/deck.service';
 import {ActivatedRoute} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
+import {Deck} from '../../../models/deck-model';
 
 enum CardState {
   DEFAULT = 'DEFAULT',
@@ -41,6 +42,7 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
   private deckIdSubscription: Subscription;
 
   cardState: string = CardState.DEFAULT;
+  currentDeck: Deck;
   currentCard: Card;
 
   constructor(private route: ActivatedRoute, private deckService: DeckService) {}
@@ -49,6 +51,8 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
     this.deckIdSubscription = this.route.params.subscribe(params => {
       this.deckId = params.id;
     });
+    this.currentDeck = this.deckService.getDeck(this.deckId);
+    this.currentCard = this.currentDeck.pickCard();
   }
 
   ngOnDestroy(): void {
@@ -56,6 +60,6 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
   }
 
   onCardDecision(isRemembered: boolean): void{
-
+    this.currentCard = this.currentDeck.pickCard();
   }
 }
