@@ -13,12 +13,20 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
     SYMBOL_DETAIL = "-"
     SYMBOL_QUESTION = "*"
     SYMBOL_ENUM_QUESTION = "$"
+    SYMBOL_OPTION = ";"
 
     def __init__(self):
         self.headers = []
         self.current_root_index = -1
         self.indices = {}  # Indices lookup table
         self.questions = []
+        self.options = {}
+
+    # Enter a parse tree produced by CoreMarkupParser#option.
+    def enterOption(self, ctx:CoreMarkupParser.OptionContext):
+        key_text = ctx.KEY().getText()
+        value_text = ctx.VALUE().getText()
+        self.options[key_text] = value_text.strip('"').replace("\\", "")
 
     # Enter a parse tree produced by CoreMarkupParser#header.
     def enterHeader(self, ctx: CoreMarkupParser.HeaderContext):
@@ -57,6 +65,7 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
         self.current_root_index = len(self.questions) - 1
         self.indices[1] = self.current_root_index
 
+    # Exit a parse tree produced by CoreMarkupParser#question.
     def exitQuestion(self, ctx: CoreMarkupParser.QuestionContext):
         # Clear indices
         self.indices = {}
@@ -115,6 +124,10 @@ class CoreMarkupConsumer(CoreMarkupParserListener):
     def is_enumerable(self, tag):
         return tag == CoreMarkupConsumer.SYMBOL_ENUM_QUESTION
 
+    def get_json(self):
+        body = self.options
+        body["cards"] = self.questions
+        return json.dumps(body)
 
 def main(argv):
     # Provide Sample.cmu file
@@ -128,9 +141,7 @@ def main(argv):
     consumer = CoreMarkupConsumer()
     walker = ParseTreeWalker()
     walker.walk(consumer, tree)
-    q = consumer.questions
-    print(json.dumps(q, indent=2, sort_keys=True))
-
+    print(consumer.get_json())
 
 if __name__ == "__main__":
     main(sys.argv)

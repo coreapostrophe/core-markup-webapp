@@ -66,4 +66,14 @@ public interface CoreMarkupParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDetail(CoreMarkupParser.DetailContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CoreMarkupParser#option}.
+	 * @param ctx the parse tree
+	 */
+	void enterOption(CoreMarkupParser.OptionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CoreMarkupParser#option}.
+	 * @param ctx the parse tree
+	 */
+	void exitOption(CoreMarkupParser.OptionContext ctx);
 }
