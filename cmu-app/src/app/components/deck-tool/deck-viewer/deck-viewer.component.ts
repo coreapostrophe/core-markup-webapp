@@ -1,9 +1,16 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Card} from '../../../models/card-model';
 import {DeckService} from '../../../services/deck.service';
 import {ActivatedRoute} from '@angular/router';
 import {Observable, Subscription} from 'rxjs';
+
+enum CardState {
+  DEFAULT = 'DEFAULT',
+  FLIPPED = 'FLIPPED',
+  REMEMBERED = 'REMEMBERED',
+  FORGOT = 'FORGOT',
+}
 
 @Component({
   selector: 'app-deck-use',
@@ -11,7 +18,7 @@ import {Observable, Subscription} from 'rxjs';
   styleUrls: ['./deck-viewer.component.scss'],
   animations: [
     trigger('card', [
-      state('default', style({
+      state(CardState.DEFAULT, style({
         opacity: 1,
         transform: 'Scale(1)'
       })),
@@ -29,12 +36,11 @@ import {Observable, Subscription} from 'rxjs';
     ])
   ]
 })
-export class DeckViewerComponent implements OnInit {
+export class DeckViewerComponent implements OnInit, OnDestroy {
   private deckId;
-  private allCards: Card[] = [];
   private deckIdSubscription: Subscription;
 
-  cardState: CardState = CardState.DEFAULT;
+  cardState: string = CardState.DEFAULT;
   currentCard: Card;
 
   constructor(private route: ActivatedRoute, private deckService: DeckService) {}
@@ -43,36 +49,13 @@ export class DeckViewerComponent implements OnInit {
     this.deckIdSubscription = this.route.params.subscribe(params => {
       this.deckId = params.id;
     });
-    this.allCards = this.deckService.getDeckList()[this.deckId].cards;
-    this.chooseCard();
+  }
+
+  ngOnDestroy(): void {
+    this.deckIdSubscription.unsubscribe();
   }
 
   onCardDecision(isRemembered: boolean): void{
-    if (this.cardState !== CardState.FLIPPED){
-      this.cardState = CardState.FLIPPED;
-    } else {
-      this.cardState = isRemembered ? CardState.REMEMBERED : CardState.FORGOT;
-      this.swapCard(this.getRandomInt(this.allCards.length));
-      this.cardState = CardState.DEFAULT;
-    }
-  }
 
-  private getRandomInt(max: number): number{
-    return Math.floor(Math.random() * Math.floor(max));
   }
-
-  private chooseCard(): void{
-    this.swapCard(this.getRandomInt(this.allCards.length));
-  }
-
-  private swapCard(i: number): void{
-    this.currentCard = this.allCards[i];
-  }
-}
-
-enum CardState {
-  DEFAULT= 'default',
-  FLIPPED = 'flipped',
-  REMEMBERED = 'remembered',
-  FORGOT = 'forgot'
 }

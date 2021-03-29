@@ -14,22 +14,25 @@
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--theme-dark);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 0.8rem;
   height: 25rem;
   width: 15rem;
-  text-align: left;
-  vertical-align:top;
-  padding: 1rem;
   box-shadow: 0 0 5rem -2rem rgba(0,0,0,0.25);
+  overflow: hidden;
   transition: all 0.4s;
-  overflow: auto;
-}
 
-.card-face{
-  display: flex;
+  .card-front, .card-back{
+    padding: 1rem;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .btn-choice{
@@ -66,3 +69,5 @@
     content: '[ Bckspc ]';
   }
 }
+
+

@@ -2,15 +2,10 @@
   <div  class="btn-forgot" (click)="onCardDecision(false)">
     <img src="../../../assets/svg/icon-forgot.svg">
   </div>
-  <div class="viewed-card">
-    <div class="card-front">
-      <div *ngIf="currentCard.enumerable">
+  <div class="viewed-card flip-front">
+      <div>
         {{ currentCard.concept }}
       </div>
-    </div>
-<!--    <div class="card-back">-->
-<!--      {{ currentCard.getRandomDetailString() }}-->
-<!--    </div>-->
   </div>
   <div  class="btn-remember" (click)="onCardDecision(true)">
     <img src="../../../assets/svg/icon-remembered.svg">

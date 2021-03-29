@@ -1,10 +1,11 @@
-import { Directive } from '@angular/core';
+import {Directive, ElementRef, HostListener, Inject, Input} from '@angular/core';
+import {DOCUMENT} from "@angular/common";
 
 @Directive({
   selector: '[appCard]'
 })
 export class CardDirective {
 
-  constructor() { }
+  constructor(private el: ElementRef) {}
 
 }

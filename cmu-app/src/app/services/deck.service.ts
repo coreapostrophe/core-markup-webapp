@@ -24,7 +24,7 @@ export class DeckService {
     this.deckList.push(deck);
   }
 
-  getDeckList(): Deck[]{
+  public getDeckList(): Deck[]{
     return this.deckList;
   }
 }
