@@ -20,7 +20,8 @@ export default class CoreMarkupErrorListener implements ANTLRErrorListener<any>{
         "rule detail failed predicate: {this.bounds($d, 0)}?": "Detail is not within nesting level",
         "rule question_detail failed predicate: {this.bounds($qd, -1)}?": "Detail is not within nesting level",
         "mismatched input '<EOF>' expecting TEXT": "Expecting text after tag",
-        "mismatched input '<EOF>' expecting {QUESTION_DETAIL_TAG, DETAIL_TAG}": "Expecting a detail after question"
+        "mismatched input '<EOF>' expecting {QUESTION_DETAIL_TAG, DETAIL_TAG}": "Expecting a detail after question",
+        "mismatched input '<EOF>' expecting {OPTION_TAG, HEADER_TAG, QUESTION_TAG}": "Expecting an option, header, or question"
     };
 
     /**
