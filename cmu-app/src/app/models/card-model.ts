@@ -10,6 +10,7 @@ export class Card{
   private _root: boolean;
 
   private _flipped: boolean;
+  private _randDetail: string;
 
   constructor(card: CardModel) {
     this._concept = card.concept;
@@ -24,8 +25,17 @@ export class Card{
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  getRandomDetailString(): string{
-    return this._details[this.getRandomInt(this._details.length)].label;
+  getRandDetail(): string{
+    if(this._randDetail){
+      return this._randDetail;
+    } else {
+      this._randDetail = this._details[this.getRandomInt(this._details.length)].label;
+      return this._randDetail;
+    }
+  }
+
+  clearRandDetail(): void{
+    this._randDetail = undefined;
   }
 
   get concept(): string {return this._concept; }
@@ -35,7 +45,6 @@ export class Card{
   get root(): boolean {return this._root; }
   get parent(): number {return this._parent; }
   get flipped(): boolean {return this._flipped;}
-
   set flipped(value: boolean) {this._flipped = value;}
 }
 

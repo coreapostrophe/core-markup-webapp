@@ -1,10 +1,10 @@
 <div class="flashcard-tool-container">
   <div class="col-sm-6 p-0">
-    <div class="viewed-card">
+    <div class="viewed-card" (click)="onCardClick()">
       <!--NON-ENUMERABLE Card Logic-->
       <div *ngIf="!currentCard.enumerable; else enumerable">
         <div *ngIf="!currentCard.flipped; else flipped">
-          {{ currentCard.concept }}
+          {{ currentCard.getRandDetail() }}
         </div>
         <ng-template #flipped>
           {{ currentCard.concept }}
@@ -13,7 +13,21 @@
 
       <!--ENUMERABLE Card Logic-->
       <ng-template #enumerable>
-        {{ currentCard.concept }}
+        <div *ngIf="!currentCard.flipped; else flipped">
+          {{ currentCard.concept }}
+        </div>
+        <ng-template #flipped>
+          <ul>
+            <div *ngFor="let detail of currentCard.details">
+              <div *ngIf="detail.label; else question">
+                <li>{{ detail.label }}</li>
+              </div>
+              <ng-template #question>
+                <li>{{ currentDeck.pickCard(detail.next).concept }}</li>
+              </ng-template>
+            </div>
+          </ul>
+        </ng-template>
       </ng-template>
     </div>
     <div class="row">

@@ -60,6 +60,11 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
   }
 
   onCardDecision(isRemembered: boolean): void{
+    this.currentCard.clearRandDetail();
     this.currentCard = this.currentDeck.pickCard();
+  }
+
+  onCardClick(): void{
+    this.currentCard.flipped = !this.currentCard.flipped;
   }
 }
