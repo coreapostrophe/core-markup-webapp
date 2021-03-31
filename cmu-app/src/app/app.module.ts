@@ -9,12 +9,14 @@ import {EditorModule} from "./components/editor/editor.module";
 import {MonacoEditorModule} from "ngx-monaco-editor";
 import {DeckToolModule} from "./components/deck-tool/deck-tool.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CardDirective } from './directives/card.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
-        DropdownDirective
+        DropdownDirective,
+        CardDirective
     ],
     imports: [
         BrowserAnimationsModule,

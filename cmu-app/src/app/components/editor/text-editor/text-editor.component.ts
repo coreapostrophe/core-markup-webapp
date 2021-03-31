@@ -12,10 +12,10 @@ export class TextEditorComponent implements OnInit {
   editorOptions = {
     theme: 'vs-light',
     language: 'text',
-    lineNumbers: 'off',
+    lineNumbers: 'false',
     borderRadius: '5',
     minimap: {
-      enabled: 'false'
+      enabled: 'true'
     }
   };
   code: string = '';

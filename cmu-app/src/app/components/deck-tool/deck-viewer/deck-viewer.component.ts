@@ -1,8 +1,17 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {animate, state, style, transition, trigger} from "@angular/animations";
-import {Card} from "../../../models/card-model";
-import {DeckService} from "../../../services/deck.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Card} from '../../../models/card-model';
+import {DeckService} from '../../../services/deck.service';
+import {ActivatedRoute} from '@angular/router';
+import {Observable, Subscription} from 'rxjs';
+import {Deck} from '../../../models/deck-model';
+
+enum CardState {
+  DEFAULT = 'DEFAULT',
+  FLIPPED = 'FLIPPED',
+  REMEMBERED = 'REMEMBERED',
+  FORGOT = 'FORGOT',
+}
 
 @Component({
   selector: 'app-deck-use',
@@ -10,7 +19,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./deck-viewer.component.scss'],
   animations: [
     trigger('card', [
-      state('default', style({
+      state(CardState.DEFAULT, style({
         opacity: 1,
         transform: 'Scale(1)'
       })),
@@ -18,9 +27,9 @@ import {ActivatedRoute} from "@angular/router";
         style({
           opacity: 0,
           transform: 'Scale(0.75)'
-        }),animate("0.2s ease")
+        }), animate('0.2s ease')
       ]),
-      transition(':leave', [animate("0.4s ease",
+      transition(':leave', [animate('0.4s ease',
         style({
           opacity: 0,
           transform: 'Scale(0.75)'
@@ -28,45 +37,34 @@ import {ActivatedRoute} from "@angular/router";
     ])
   ]
 })
-export class DeckViewerComponent implements OnInit {
-  @ViewChild('currentCard') currentCard;
+export class DeckViewerComponent implements OnInit, OnDestroy {
+  private deckId;
+  private deckIdSubscription: Subscription;
 
-  private allCards: Card[] = [];
-  domCard: Card[] = [];
-  cardState: CardState = CardState.DEFAULT;
+  cardState: string = CardState.DEFAULT;
+  currentDeck: Deck;
+  currentCard: Card;
 
-
-  constructor(private route:ActivatedRoute, private deckList: DeckService) {}
+  constructor(private route: ActivatedRoute, private deckService: DeckService) {}
 
   ngOnInit(): void {
-    this.swapCard(this.getRandomInt(this.allCards.length));
+    this.deckIdSubscription = this.route.params.subscribe(params => {
+      this.deckId = params.id;
+    });
+    this.currentDeck = this.deckService.getDeck(this.deckId);
+    this.currentCard = this.currentDeck.pickCard();
   }
 
-  private getRandomInt(max){
-    return Math.floor(Math.random()*Math.floor(max))
+  ngOnDestroy(): void {
+    this.deckIdSubscription.unsubscribe();
   }
 
-  onCardDecision(isRemembered: boolean){
-    if(this.cardState != CardState.FLIPPED){
-      this.cardState = CardState.FLIPPED;
-    } else {
-      this.cardState = isRemembered ? CardState.REMEMBERED : CardState.FORGOT;
-      this.swapCard(this.getRandomInt(this.allCards.length));
-      this.cardState = CardState.DEFAULT;
-    }
+  onCardDecision(isRemembered: boolean): void{
+    this.currentCard.clearRandDetail();
+    this.currentCard = this.currentDeck.pickCard();
   }
 
-  private swapCard(i: number){
-    if(this.domCard.length > 0){
-      this.domCard = [];
-    }
-    this.domCard.push(this.allCards[i]);
+  onCardClick(): void{
+    this.currentCard.flipped = !this.currentCard.flipped;
   }
-}
-
-enum CardState {
-  DEFAULT= 'default',
-  FLIPPED = 'flipped',
-  REMEMBERED = 'remembered',
-  FORGOT = 'forgot'
 }
