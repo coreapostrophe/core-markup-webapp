@@ -5,18 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DropdownDirective } from './directives/dropdown.directive';
+
 import { EditorModule } from "./components/editor/editor.module";
 import { DeckToolModule } from "./components/deck-tool/deck-tool.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { onMonacoLoad } from "$app/language/setup";
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+import { CardDirective } from './directives/card.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
-        DropdownDirective
+        DropdownDirective,
+        CardDirective
     ],
     imports: [
         BrowserAnimationsModule,
