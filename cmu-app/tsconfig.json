@@ -17,7 +17,8 @@
       "dom"
     ],
     "paths": {
-      "$antlr/*": ["src/antlr/*"]
+      "$app/*": ["src/app/*"],
+      "$antlr/*": ["src/app/language/antlr/*"]
     }
   }
 }

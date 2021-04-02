@@ -7,7 +7,8 @@
       "es2018",
       "webworker"
     ],
-    "types": []
+    "types": [
+    ]
   },
   "include": [
     "src/**/*.worker.ts"
