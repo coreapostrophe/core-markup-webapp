@@ -42,8 +42,13 @@ export function onMonacoLoad() {
         base: 'vs',
         inherit: false,
         rules: [
+            { token: 'string', foreground: '#808080' },
+            { token: 'option', foreground: '#07991F' },
+            { token: 'option.content', foreground: '#07991F' },
             { token: 'header', foreground: '#11A6B1', fontStyle: 'bold' },
             { token: 'header.content', foreground: '#11A6B1', fontStyle: 'bold' },
+            { token: 'question', foreground: '#11A6B1' },
+            { token: 'question.content', foreground: '#11A6B1' },
             { token: 'identifier', foreground: '#474E56' }
         ],
         colors: {

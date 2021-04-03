@@ -22,7 +22,11 @@ export class TextEditorComponent implements OnInit {
     fontFamily: 'Open Sans'
   };
 
-  code: string = `# Data Representation
+  code: string = `; title "Sample Deck"
+; color "#ff00ff"
+; backgroundImage "sample.jpg"
+
+# Data Representation
 ## Number Systems and Base Conversion
 
 $ Base-r to Decimal
@@ -31,12 +35,12 @@ $ Base-r to Decimal
 -- 1.2. For the fractional part, power of r goes from -1 to -m where m is the number of digits in the fractional part
 - 2. Get the sum
 
-$ Decimal to Base-r
+* Decimal to Base-r
 -  1. Split the number into its integer part and its fractional part.
--$ 2. Convert integer part to base-r
+-* 2. Convert integer part to base-r
 -- 2.1. Divide the integer by r. Accumulate the remainders
 -- 2.2. Repeat step 2.1 until quotient is already equal to zero
--$ 3. Convert fractional part to base-r
+-* 3. Convert fractional part to base-r
 -- 3.1. Multiply the fraction by r. Accumulate the integers of the product.
 -- 3.2. Repeat step 3.1 until the fractional part of the product is already equal to zero or sufficient accuracy is achieved.`;
 
