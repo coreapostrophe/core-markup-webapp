@@ -12,13 +12,14 @@ import { onMonacoLoad } from "$app/language/setup";
 export class TextEditorComponent implements OnInit {
 
   editorOptions: MonacoEditorConstructionOptions = {
-    theme: 'vs',
+    theme: 'cmuLight',
     language: languageID,
     lineNumbers: 'off',
     cursorBlinking: 'blink',
     minimap: {
       enabled: false,
-    }
+    },
+    fontFamily: 'Open Sans'
   };
 
   code: string = `# Data Representation
