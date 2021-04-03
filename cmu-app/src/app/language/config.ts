@@ -18,32 +18,54 @@ export const richLanguageConfiguration: IRichLanguageConfiguration = {
 export const monarchLanguage = <ILanguage>{
     // Set defaultToken to invalid to see what you do not tokenize yet
     defaultToken: 'invalid',
-    keywords: [
-        'COMPLETE', 'ADD',
-    ],
-    typeKeywords: ['TODO'],
+    includeLF: true,
+    unicode: true,
     escapes: /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
-    
+
     // The main tokenizer for our languages
     tokenizer: {
         root: [
             // identifiers and keywords
-            [/[a-zA-Z_$][\w$]*/, {
+            [/[a-zA-Z]/, {
                 cases: {
-                    '@keywords': { token: 'keyword' },
-                    '@typeKeywords': { token: 'type' },
                     '@default': 'identifier'
                 }
             }],
             // whitespace
             { include: '@whitespace' },
-            // strings for todos
+
+            [/(#)+/, 'header', '@header'],
+            [/(\*)/, 'question', '@question'],
+            [/(\$)/, 'question', '@question'],
+            [/(;)/, 'option', '@option'],
+
+            // strings for options
             [/"([^"\\]|\\.)*$/, 'string.invalid'],  // non-teminated string
             [/"/, 'string', '@string'],
         ],
+
+        header: [
+            { include: '@whitespace' },
+            [/[^\r\n]/, 'header.content'],
+            [/[\r\n]+/, '', '@pop']
+        ],
+
+        question: [
+            { include: '@whitespace' },
+            [/[^\r\n]/, 'question.content'],
+            [/[\r\n]+/, '', '@pop']
+        ],
+
+        option: [
+            { include: '@whitespace' },
+            [/"/, 'string', '@string'],
+            [/[a-zA-Z0-9]/, 'option.content'],
+            [/[\r\n]+/, '', '@pop']
+        ],
+
         whitespace: [
-			[/[ \t\r\n]+/, ''],
-		],
+            [/[ \t]+/, ''],
+        ],
         string: [
             [/[^\\"]+/, 'string'],
             [/@escapes/, 'string.escape'],
