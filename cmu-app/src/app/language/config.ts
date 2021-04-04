@@ -34,10 +34,9 @@ export const monarchLanguage = <ILanguage>{
             // whitespace
             { include: '@whitespace' },
 
-            [/(#)+/, 'header', '@header'],
-            [/(\*)/, 'question', '@question'],
-            [/(\$)/, 'question', '@question'],
-            [/(;)/, 'option', '@option'],
+            [/^(#)+/, 'header', '@header'],
+            [/^(-)*(\*|\$)/, 'question', '@question'],
+            [/^(;)/, 'option', '@option'],
 
             // strings for options
             [/"([^"\\]|\\.)*$/, 'string.invalid'],  // non-teminated string
@@ -66,6 +65,7 @@ export const monarchLanguage = <ILanguage>{
         whitespace: [
             [/[ \t]+/, ''],
         ],
+
         string: [
             [/[^\\"]+/, 'string'],
             [/@escapes/, 'string.escape'],
