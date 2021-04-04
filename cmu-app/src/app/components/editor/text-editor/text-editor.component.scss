@@ -1,16 +1,13 @@
 .monaco-editor {
   box-sizing: border-box;
-  background-color: transparent;
+  background-color: white;
   height: 100%;
-  border-radius: 5pt;
-  /* Forgive me... */
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: visible; 
-}
+  padding: 1rem;
+  border-radius: 0.8rem;
+  overflow: visible;
 
-ngx-monaco-editor {
-  height: 100%;
-  width: auto;
+  ngx-monaco-editor {
+    height: 100%;
+    width: auto;
+  }
 }
