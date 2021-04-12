@@ -13,13 +13,15 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { onMonacoLoad } from "$app/language/setup";
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { CardDirective } from './directives/card.directive';
+import { MenuLinksComponent } from './components/menu/menu-dropdown/menu-links.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
         DropdownDirective,
-        CardDirective
+        CardDirective,
+        MenuLinksComponent
     ],
     imports: [
         BrowserAnimationsModule,
