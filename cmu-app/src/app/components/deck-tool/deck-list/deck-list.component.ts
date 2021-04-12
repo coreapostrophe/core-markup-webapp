@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Deck} from "../../../models/deck-model";
-import {ActivatedRoute, Router} from "@angular/router";
-import {DeckService} from "../../../services/deck.service";
+import {Deck} from '$app/models/deck-model';
+import {ActivatedRoute, Router} from '@angular/router';
+import {DeckService} from '$app/services/deck.service';
 
 @Component({
   selector: 'app-deck-list',
@@ -17,8 +17,6 @@ export class DeckListComponent implements OnInit {
   ngOnInit(): void {
     this.decks = this.deckService.getDeckList();
   }
-
-
 
   onClickDeck(event, deckID): void{
     this.router.navigate(['Flashcard', deckID], {relativeTo: this.route.parent}).then(e => {

@@ -1,43 +1,41 @@
 <div class="flashcard-tool-container">
-  <div class="col-sm-6 p-0">
-    <div class="viewed-card" (click)="onCardClick()">
-      <!--NON-ENUMERABLE Card Logic-->
-      <div *ngIf="!currentCard.enumerable; else enumerable">
-        <div *ngIf="!currentCard.flipped; else flipped">
-          {{ currentCard.getRandDetail() }}
+  <div class="col-sm-12 col-md-6 p-0">
+    <div class="flashcard-tool">
+      <div class="viewed-card" (click)="onCardClick()" [@card]="cardState">
+        <!--NON-ENUMERABLE Card Logic-->
+        <div *ngIf="!currentCard.enumerable; else enumerable">
+          <div class="viewed-card-content" *ngIf="!currentCard.flipped; else flipped">
+            {{ currentCard.getRandDetail() }}
+          </div>
+          <ng-template class="viewed-card-content" #flipped >
+              {{ currentCard.concept }}
+          </ng-template>
         </div>
-        <ng-template #flipped>
-          {{ currentCard.concept }}
+
+        <!--ENUMERABLE Card Logic-->
+        <ng-template #enumerable>
+          <div class="viewed-card-content" *ngIf="!currentCard.flipped; else flipped">
+            {{ currentCard.concept }}
+          </div>
+          <ng-template class="viewed-card-content" #flipped >
+              <ul>
+                <div *ngFor="let detail of currentCard.details">
+                  <div *ngIf="detail.label; else question">
+                    <li>{{ detail.label }}</li>
+                  </div>
+                  <ng-template #question>
+                    <li>{{ currentDeck.pickCard(detail.next).concept }}</li>
+                  </ng-template>
+                </div>
+              </ul>
+          </ng-template>
         </ng-template>
       </div>
-
-      <!--ENUMERABLE Card Logic-->
-      <ng-template #enumerable>
-        <div *ngIf="!currentCard.flipped; else flipped">
-          {{ currentCard.concept }}
-        </div>
-        <ng-template #flipped>
-          <ul>
-            <div *ngFor="let detail of currentCard.details">
-              <div *ngIf="detail.label; else question">
-                <li>{{ detail.label }}</li>
-              </div>
-              <ng-template #question>
-                <li>{{ currentDeck.pickCard(detail.next).concept }}</li>
-              </ng-template>
-            </div>
-          </ul>
-        </ng-template>
-      </ng-template>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="btn-forget" (click)="onCardDecision(false)">
+      <div class="decision-button-container row">
+        <div class="btn-forget col-sm-12 col-md-6" (click)="onCardDecision(false)">
           Forget
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="btn-remember" (click)="onCardDecision(true)">
+        <div class="btn-remember col-sm-12 col-md-6" (click)="onCardDecision(true)">
           Remember
         </div>
       </div>

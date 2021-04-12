@@ -1,16 +1,15 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Card} from '../../../models/card-model';
-import {DeckService} from '../../../services/deck.service';
+import {Card} from '$app/models/card-model';
+import {DeckService} from '$app/services/deck.service';
 import {ActivatedRoute} from '@angular/router';
-import {Observable, Subscription} from 'rxjs';
-import {Deck} from '../../../models/deck-model';
+import {Subscription} from 'rxjs';
+import {Deck} from '$app/models/deck-model';
 
 enum CardState {
   DEFAULT = 'DEFAULT',
   FLIPPED = 'FLIPPED',
-  REMEMBERED = 'REMEMBERED',
-  FORGOT = 'FORGOT',
+  OUT = 'OUT'
 }
 
 @Component({
@@ -20,20 +19,20 @@ enum CardState {
   animations: [
     trigger('card', [
       state(CardState.DEFAULT, style({
-        opacity: 1,
-        transform: 'Scale(1)'
+        transform: 'rotateY(0deg)',
+        opacity: '1'
       })),
-      transition(':enter', [
-        style({
-          opacity: 0,
-          transform: 'Scale(0.75)'
-        }), animate('0.2s ease')
-      ]),
-      transition(':leave', [animate('0.4s ease',
-        style({
-          opacity: 0,
-          transform: 'Scale(0.75)'
-        }))])
+      state(CardState.FLIPPED, style({
+        transform: 'rotateY(90deg)',
+        opacity: '1'
+      })),
+      state(CardState.OUT, style({
+        transform: 'translateY(-2rem)',
+        opacity: '0'
+      })),
+      transition('* => *', [
+        animate('0.2s')
+      ])
     ])
   ]
 })
@@ -60,11 +59,19 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
   }
 
   onCardDecision(isRemembered: boolean): void{
-    this.currentCard.clearRandDetail();
-    this.currentCard = this.currentDeck.pickCard();
+    this.cardState = CardState.OUT;
+    setTimeout(() => {
+      this.currentCard.clearRandDetail();
+      this.currentCard = this.currentDeck.pickCard();
+      this.cardState = CardState.DEFAULT;
+    }, 200);
   }
 
   onCardClick(): void{
-    this.currentCard.flipped = !this.currentCard.flipped;
+    this.cardState = CardState.FLIPPED;
+    setTimeout(() => {
+      this.currentCard.flipped = !this.currentCard.flipped;
+      this.cardState = CardState.DEFAULT;
+    }, 200);
   }
 }
