@@ -1,62 +1,24 @@
 <div class="menu-bar-container" [ngClass]="{'menu-expand': !menuCollapsed}">
   <div class="menu-bar">
     <div class="menu-top-row">
-      <img class="brand-logo" src="../../../assets/svg/logo-light.svg">
-      <div class="menu-bar-list">
-        <button class="menu-bar-list-items dropdown" appDropdown [dropdown-content]="'File'">
-          File
-          <div class="dropdown-content" id="File">
-            <label class="dropdown-list-items">New</label>
-            <label class="dropdown-list-items">Open</label>
-            <label class="dropdown-list-items">Save</label>
-            <label class="dropdown-list-items">Save as</label>
-          </div>
-        </button>
-        <button class="menu-bar-list-items">Edit</button>
-        <button class="menu-bar-list-items">View</button>
-        <button class="menu-bar-list-items">Help</button>
-      </div>
-      <img class="icon-switch-editor" [ngClass]="{'icon-grey': switchIsDecktool}" src="../../../assets/svg/icon-switch-editor.svg">
+      <img class="brand-logo" src="assets/svg/logo-light.svg">
+
+      <app-menu-links></app-menu-links>
+
+      <img class="icon-switch-editor" [ngClass]="{'icon-grey': isDecktool}" src="assets/svg/icon-switch-editor.svg">
       <div class="menu-switch" (click)="onSwitch()">
-        <div class="menu-switch-slider" [ngClass]="{'slider-right': switchIsDecktool}"></div>
+        <div class="menu-switch-slider" [ngClass]="{'slider-right': isDecktool}"></div>
       </div>
-      <img class="icon-switch-decktool" [ngClass]="{'icon-light': switchIsDecktool}" src="../../../assets/svg/icon-switch-decktool.svg">
+      <img class="icon-switch-decktool" [ngClass]="{'icon-light': isDecktool}" src="assets/svg/icon-switch-decktool.svg">
     </div>
     <div class="menu-bot-row">
-      <img class="menu-dropdown-toggle" src="../../../assets/svg/icon-menu-toggle.svg"
+      <img class="menu-dropdown-toggle" src="assets/svg/icon-menu-toggle.svg"
            (click)="onMenuDropdown()" [ngClass]="{'menu-dropdown-expand': !menuCollapsed}">
 
-      <!--TOOLS PANEL-->
-      <div class="panel">
-        <label class="panel-title">GENERATE</label>
-<!--        <div class="panel-divider"></div>-->
-        <div></div>
-        <div class="panel-item-group">
-          <img class="panel-item" src="../../../assets/svg/icon-question.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-enumerable.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-details.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-header-up.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-header-down.svg">
-        </div>
-      </div>
-      <!--TOOLS PANEL (END)-->
-
-      <!--UTILITY PANEL-->
-      <div class="panel">
-        <label class="panel-title">UTILITY</label>
-<!--        <div class="panel-divider"></div>-->
-        <div></div>
-        <div class="panel-item-group">
-          <img class="panel-item" src="../../../assets/svg/icon-save.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-save-as.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-open.svg">
-          <img class="panel-item" src="../../../assets/svg/icon-preferences.svg">
-        </div>
-      </div>
-      <!--UTILITY PANEL (END)-->
+      <app-tools-panel></app-tools-panel>
 
       <div class="login-signup">
-        <img class="icon-account" src="../../../assets/svg/icon-account.svg">
+        <img class="icon-account" src="assets/svg/icon-account.svg">
         <label>LOGIN / SIGNUP</label>
       </div>
     </div>

@@ -1,0 +1,14 @@
+<div class="menu-bar-list">
+  <button class="menu-bar-list-items dropdown"
+          appDropdown
+          [dropdown-content]="menuLink.name" *ngFor="let menuLink of menuLinksObject">
+    {{menuLink.name}}
+    <span class="dropdown-content" id="{{menuLink.name}}">
+      <label class="dropdown-list-items"
+             *ngFor="let item of menuLink.listItems"
+             (click)="item.onClick()">
+        {{ item.label }}
+      </label>
+    </span>
+  </button>
+</div>

@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnDestroy} from '@angular/core';
-import {NavigationEnd, Router} from "@angular/router";
-import {filter} from "rxjs/operators";
-import {Subscription} from "rxjs";
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -9,46 +9,40 @@ import {Subscription} from "rxjs";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements AfterViewInit, OnDestroy {
-
-  switchIsDecktool: boolean;
-  menuCollapsed: boolean;
-  currentUrl: string;
   urlSubscription: Subscription;
+  isDecktool: boolean;
+  menuCollapsed: boolean;
 
   constructor(private router: Router) {
-    this.switchIsDecktool = false;
+    this.isDecktool = false;
     this.menuCollapsed = true;
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
+
     this.urlSubscription = this.router.events.pipe(
       filter((event) => event instanceof NavigationEnd))
-      .subscribe( x=> {
-        this.currentUrl = x['url'];
-        if(this.currentUrl.slice(0,6) === '/Decks'){
-          this.switchIsDecktool = true;
-        }
-        else if(this.currentUrl.slice(0,7) === '/Editor'){
-          this.switchIsDecktool = false;
-        }
+      .subscribe( event => {
+        const currentUrl = event[('url')];
+        this.isDecktool = (currentUrl !== '/Editor');
       }
     );
   }
 
-  onSwitch(){
-    this.switchIsDecktool = !this.switchIsDecktool;
-    if(this.switchIsDecktool == true){
-      this.router.navigate(['/Decks']);
+  onSwitch(): void{
+    this.isDecktool = !this.isDecktool;
+    if (this.isDecktool === true){
+      this.router.navigate(['/Decks']).then(r => r);
     } else {
-      this.router.navigate(['/Editor']);
+      this.router.navigate(['/Editor']).then(r => r);
     }
   }
 
-  onMenuDropdown(){
+  onMenuDropdown(): void{
     this.menuCollapsed = !this.menuCollapsed;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.urlSubscription.unsubscribe();
   }
 }
