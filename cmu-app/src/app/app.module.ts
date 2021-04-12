@@ -14,6 +14,7 @@ import { onMonacoLoad } from "$app/language/setup";
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { CardDirective } from './directives/card.directive';
 import { MenuLinksComponent } from './components/menu/menu-dropdown/menu-links.component';
+import { ToolsPanelComponent } from './components/menu/tools-panel/tools-panel.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { MenuLinksComponent } from './components/menu/menu-dropdown/menu-links.c
         MenuComponent,
         DropdownDirective,
         CardDirective,
-        MenuLinksComponent
+        MenuLinksComponent,
+        ToolsPanelComponent
     ],
     imports: [
         BrowserAnimationsModule,

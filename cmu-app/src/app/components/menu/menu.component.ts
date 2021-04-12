@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot, NavigationEnd, Router, UrlSegment} from '@angular/router';
-import {filter, map} from 'rxjs/operators';
+import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -13,36 +13,7 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   isDecktool: boolean;
   menuCollapsed: boolean;
 
-  menuLinksObject = [
-    {name: 'File', listItems: [
-        {label: 'New', onClick: this.onClick},
-        {label: 'Open', onClick: this.onClick},
-        {label: 'Save', onClick: this.onClick},
-        {label: 'Save as', onClick: this.onClick},
-      ]},
-    {name: 'Edit', listItems: [
-        {label: 'Paragraph Spacing', onClick: this.onClick},
-        {label: 'Indentation', onClick: this.onClick},
-        {label: 'Word Count', onClick: this.onClick},
-        {label: 'Comments', onClick: this.onClick},
-      ]},
-    {name: 'View', listItems: [
-        {label: 'Read Mode', onClick: this.onClick},
-        {label: 'Zoom', onClick: this.onClick},
-        {label: 'Properties', onClick: this.onClick},
-      ]},
-    {name: 'Help', listItems: [
-        {label: 'About', onClick: this.onClick},
-        {label: 'Feedback', onClick: this.onClick},
-        {label: 'What\'s New', onClick: this.onClick},
-      ]},
-  ];
-
-  onClick(): void{
-    console.log('clicked!');
-  }
-
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router) {
     this.isDecktool = false;
     this.menuCollapsed = true;
   }
@@ -61,9 +32,9 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   onSwitch(): void{
     this.isDecktool = !this.isDecktool;
     if (this.isDecktool === true){
-      this.router.navigate(['/Decks']);
+      this.router.navigate(['/Decks']).then(r => r);
     } else {
-      this.router.navigate(['/Editor']);
+      this.router.navigate(['/Editor']).then(r => r);
     }
   }
 

@@ -1,0 +1,12 @@
+<div id="tools-panel">
+  <div class="panel" *ngFor="let toolPanel of toolPanelObject">
+    <label class="panel-title">{{ toolPanel.name }}</label>
+    <br>
+    <div class="panel-item-group">
+      <img src="{{ tool.src }}"
+           (click)="tool.onClick()"
+           class="panel-item"
+           *ngFor="let tool of toolPanel.toolItems">
+    </div>
+  </div>
+</div>
