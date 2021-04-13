@@ -32,8 +32,6 @@ export class ToolsPanelComponent implements OnInit, AfterViewInit, OnDestroy {
         } else {
           this.toolPanelObject = [];
         }
-
-        console.log(this.toolPanelObject);
       });
   }
 
