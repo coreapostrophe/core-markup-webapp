@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
+import {ModalService} from "$app/services/modal.service";
+import {TestModalComponent} from "$app/components/modals/test-modal/test-modal.component";
 
 @Component({
   selector: 'app-menu',

@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ModalService} from '$app/services/modal.service';
+import MenuLinksModel from '$app/models/menu-links-model';
 
 @Component({
   selector: 'app-menu-links',
@@ -7,13 +9,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class MenuLinksComponent implements OnInit {
 
-  menuLinksObject: {
-    name: string,
-    listItems: {
-      label: string,
-      onClick: () => void
-    }[]
-  }[] = [
+  menuLinksObject: MenuLinksModel[] = [
     {name: 'File', listItems: [
         {label: 'New', onClick: this.onClick},
         {label: 'Open', onClick: this.onClick},
@@ -38,14 +34,11 @@ export class MenuLinksComponent implements OnInit {
       ]},
   ];
 
+  constructor(private modalService: ModalService) { }
+
   onClick(): void{
     console.log('clicked!');
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
+  ngOnInit(): void { }
 }
