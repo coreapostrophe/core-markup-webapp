@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import ToolsPanelModel from '$app/models/tools-panel-model';
 import EditorToolsPanel from '$app/components/menu/tools-panel/tools-list/EditorToolsPanel';
+import {ModalService} from "$app/services/modal.service";
 
 @Component({
   selector: 'app-tools-panel',
@@ -14,13 +15,11 @@ export class ToolsPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private urlSubscription: Subscription;
 
-  toolPanelObject: ToolsPanelModel[];
+  toolPanelObject: ToolsPanelModel[] = [];
 
   editorToolsPanel = new EditorToolsPanel();
 
-  constructor(private router: Router) {
-    this.toolPanelObject = [];
-  }
+  constructor(private router: Router) { }
 
   ngAfterViewInit(): void {
     this.urlSubscription = this.router.events.pipe(
