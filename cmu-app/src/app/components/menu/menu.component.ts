@@ -9,7 +9,8 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements AfterViewInit, OnDestroy {
-  urlSubscription: Subscription;
+
+  private urlSubscription: Subscription;
   isDecktool: boolean;
   menuCollapsed: boolean;
 

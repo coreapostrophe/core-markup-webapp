@@ -1,40 +1,45 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {filter} from 'rxjs/operators';
+import ToolsPanelModel from '$app/models/tools-panel-model';
+import EditorToolsPanel from '$app/components/menu/tools-panel/tools-list/EditorToolsPanel';
 
 @Component({
   selector: 'app-tools-panel',
   templateUrl: './tools-panel.component.html',
   styleUrls: ['./tools-panel.component.scss']
 })
-export class ToolsPanelComponent implements OnInit {
+export class ToolsPanelComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  toolPanelObject: {
-    name: string,
-    toolItems: {
-      src: string,
-      onClick: () => void
-    }[]
-  }[] = [
-    {name: 'Generate', toolItems: [
-        {src: 'assets/svg/icon-question.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-enumerable.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-details.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-header-up.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-header-down.svg', onClick: this.onClick},
-      ]},
-    {name: 'Utility', toolItems: [
-        {src: 'assets/svg/icon-save.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-save-as.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-open.svg', onClick: this.onClick},
-        {src: 'assets/svg/icon-preferences.svg', onClick: this.onClick}
-      ]},
-  ];
+  private urlSubscription: Subscription;
 
-  onClick(): void{
-    console.log('clicked!')
+  toolPanelObject: ToolsPanelModel[];
+
+  editorToolsPanel = new EditorToolsPanel();
+
+  constructor(private router: Router) {
+    this.toolPanelObject = [];
   }
 
-  constructor() { }
+  ngAfterViewInit(): void {
+    this.urlSubscription = this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd))
+      .subscribe(event => {
+        const currentUrl = event[('url')];
+        if (currentUrl === '/Editor'){
+          this.toolPanelObject = this.editorToolsPanel.toolPanelObject;
+        } else {
+          this.toolPanelObject = [];
+        }
+
+        console.log(this.toolPanelObject);
+      });
+  }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
   }
 }
