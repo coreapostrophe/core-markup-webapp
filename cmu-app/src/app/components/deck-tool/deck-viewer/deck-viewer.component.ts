@@ -28,10 +28,11 @@ enum CardState {
       })),
       state(CardState.OUT, style({
         transform: 'translateY(-2rem)',
-        opacity: '0'
+        transformOrigin: '100% 100%',
+        opacity: '1'
       })),
       transition('* => *', [
-        animate('0.2s')
+        animate('0.2s ease-in-out')
       ])
     ])
   ]
@@ -54,24 +55,30 @@ export class DeckViewerComponent implements OnInit, OnDestroy {
     this.currentCard = this.currentDeck.pickCard();
   }
 
+  async delay(callback: () => void, delay): Promise<void>{
+    setTimeout(() => {
+      callback();
+    }, delay);
+  }
+
   ngOnDestroy(): void {
     this.deckIdSubscription.unsubscribe();
   }
 
-  onCardDecision(isRemembered: boolean): void{
+  async onCardDecision(isRemembered: boolean): Promise<void> {
     this.cardState = CardState.OUT;
-    setTimeout(() => {
+    await this.delay(() => {
       this.currentCard.clearRandDetail();
       this.currentCard = this.currentDeck.pickCard();
       this.cardState = CardState.DEFAULT;
-    }, 200);
+    }, 200).then(r => r);
   }
 
-  onCardClick(): void{
+  async onCardClick(): Promise<void> {
     this.cardState = CardState.FLIPPED;
-    setTimeout(() => {
+    await this.delay(() => {
       this.currentCard.flipped = !this.currentCard.flipped;
       this.cardState = CardState.DEFAULT;
-    }, 200);
+    }, 200).then(r => r);
   }
 }

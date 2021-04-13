@@ -19,7 +19,7 @@
           </div>
           <ng-template class="viewed-card-content" #flipped >
               <ul>
-                <div *ngFor="let detail of currentCard.details">
+                <div *ngFor="let detail of currentCard.details; let i = index;">
                   <div *ngIf="detail.label; else question">
                     <li>{{ detail.label }}</li>
                   </div>
