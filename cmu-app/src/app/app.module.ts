@@ -10,20 +10,21 @@ import { EditorModule } from "./components/editor/editor.module";
 import { DeckToolModule } from "./components/deck-tool/deck-tool.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { onMonacoLoad } from "$app/language/setup";
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
-import { CardDirective } from './directives/card.directive';
 import { MenuLinksComponent } from './components/menu/menu-dropdown/menu-links.component';
 import { ToolsPanelComponent } from './components/menu/tools-panel/tools-panel.component';
+import { ModalDirective } from './directives/modal.directive';
+import { TestModalComponent } from './components/modals/test-modal/test-modal.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
         DropdownDirective,
-        CardDirective,
         MenuLinksComponent,
-        ToolsPanelComponent
+        ToolsPanelComponent,
+        ModalDirective,
+        TestModalComponent
     ],
     imports: [
         BrowserAnimationsModule,
